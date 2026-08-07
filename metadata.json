@@ -1,0 +1,6 @@
+{
+  "name": "더사랑 주간보호센터",
+  "description": "마음대로 걸을 수 있는 200평 단층 숲세권 더사랑 주간보호센터 - 전화상담 및 견학신청 랜딩페이지",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

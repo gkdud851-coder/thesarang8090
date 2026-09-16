@@ -60,47 +60,42 @@ export default function App() {
       `}</style>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#FBFAF7]/95 backdrop-blur-md border-b border-[#E0E4DC] py-3.5 transition-all">
-        <div className="max-w-[1080px] mx-auto px-6 flex justify-between items-center">
+      <header className="sticky top-0 z-50 bg-[#1F3D2B] text-[#FBFAF7] border-b border-[#2C523B] py-3.5 shadow-md transition-all">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6 flex justify-between items-center">
           {/* Logo & Center Name */}
-          <a href="#" className="flex items-center gap-2.5 group">
+          <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
             <img
-              src="/logo.svg"
+              src="/logo.png"
               alt="더사랑 주간보호센터 로고"
-              className="h-10 w-auto object-contain"
+              className="h-10 sm:h-12 w-auto object-contain drop-shadow"
             />
+            <span className="font-serif-custom text-base sm:text-xl font-bold tracking-tight text-[#FBFAF7] group-hover:text-[#E4A93C] transition-colors">
+              더사랑 주간보호센터
+            </span>
           </a>
 
-          {/* Navigation Menus (전화상담 / 블로그 / 유튜브 / 오시는길) */}
-          <nav className="hidden md:flex items-center gap-6 text-base font-semibold text-[#23291F]">
+          {/* Navigation Menus (전화상담 / 블로그 / 오시는길) */}
+          <nav className="hidden md:flex items-center gap-6 text-base font-semibold text-[#E8EDE4]">
             <a
               href="tel:062-675-8090"
-              className="hover:text-[#1F3D2B] transition-colors flex items-center gap-1"
+              className="hover:text-[#E4A93C] transition-colors flex items-center gap-1.5"
             >
-              <span className="w-2 h-2 rounded-full bg-[#03CF5D]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#03CF5D] animate-pulse" />
               전화상담
             </a>
             <a
               href="https://blog.naver.com/sarang8090"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#1F3D2B] transition-colors"
+              className="hover:text-[#E4A93C] transition-colors"
             >
-              블로그
-            </a>
-            <a
-              href="https://www.youtube.com/@thesarang8090"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#1F3D2B] transition-colors text-[#CC0000]"
-            >
-              유튜브
+              네이버 블로그
             </a>
             <a
               href="https://map.naver.com/p/entry/place/1313104249?placePath=%2Fhome%3Fentry%3Dplt%26from%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608061030%26locale%3Dko%26svcName%3Dmap_pcv5&searchType=place&lng=126.8951916&lat=35.1226735&c=15.00,0,0,0,dh"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#1F3D2B] transition-colors text-[#0068FF]"
+              className="hover:text-[#E4A93C] transition-colors text-[#85B6FF]"
             >
               오시는길
             </a>
@@ -109,13 +104,13 @@ export default function App() {
           <div className="flex items-center gap-2.5">
             <a
               href="tel:062-675-8090"
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 text-sm md:text-base font-semibold text-[#1F3D2B] border border-[#1F3D2B] rounded hover:bg-[#1F3D2B]/5 transition-colors"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm md:text-base font-semibold text-[#FBFAF7] border border-[#FBFAF7]/40 rounded hover:bg-white/10 transition-colors"
             >
               062-675-8090
             </a>
             <a
               href="tel:062-675-8090"
-              className="inline-flex items-center justify-center px-4 py-2.5 text-sm md:text-base font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors shadow-sm"
+              className="inline-flex items-center justify-center px-3.5 py-2 sm:px-4 sm:py-2 text-xs sm:text-base font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors shadow-sm"
             >
               견학 · 상담 신청
             </a>
@@ -123,18 +118,19 @@ export default function App() {
         </div>
 
         {/* Mobile Sub-Nav */}
-        <div className="md:hidden flex items-center justify-around border-t border-[#E0E4DC] mt-2.5 pt-2 px-4 text-xs font-semibold text-[#4A5243]">
-          <a href="tel:062-675-8090" className="py-1 text-[#1F3D2B]">전화상담</a>
-          <span className="text-[#E0E4DC]">|</span>
-          <a href="https://blog.naver.com/sarang8090" target="_blank" rel="noopener noreferrer" className="py-1">블로그</a>
-          <span className="text-[#E0E4DC]">|</span>
-          <a href="https://www.youtube.com/@thesarang8090" target="_blank" rel="noopener noreferrer" className="py-1 text-[#CC0000]">유튜브</a>
-          <span className="text-[#E0E4DC]">|</span>
+        <div className="md:hidden flex items-center justify-around border-t border-[#2C523B] mt-2.5 pt-2 px-4 text-xs font-semibold text-[#E8EDE4]">
+          <a href="tel:062-675-8090" className="py-1 text-[#E4A93C] flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-[#03CF5D]" />
+            전화상담
+          </a>
+          <span className="text-white/20">|</span>
+          <a href="https://blog.naver.com/sarang8090" target="_blank" rel="noopener noreferrer" className="py-1 hover:text-white">블로그</a>
+          <span className="text-white/20">|</span>
           <a
             href="https://map.naver.com/p/entry/place/1313104249?placePath=%2Fhome%3Fentry%3Dplt%26from%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608061030%26locale%3Dko%26svcName%3Dmap_pcv5&searchType=place&lng=126.8951916&lat=35.1226735&c=15.00,0,0,0,dh"
             target="_blank"
             rel="noopener noreferrer"
-            className="py-1 text-[#0068FF]"
+            className="py-1 text-[#85B6FF]"
           >
             오시는길
           </a>
@@ -468,17 +464,41 @@ export default function App() {
             <p className="text-xs sm:text-base md:text-lg text-[#4A5243] mb-3 sm:mb-4 leading-relaxed">
               <strong className="text-[#1F3D2B]">100m 실내 트랙 산책로 상시 개방</strong> — 계단 없이 평평한 200평 단층 공간에서 보행차 및 자율 걷기, 아침 다함께 걷기 운동을 시간 날 때마다 진행합니다.
             </p>
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-4 mb-4 sm:mb-6">
+
+            {/* 메인 걷기 트랙 사진 2열 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 mb-3 sm:mb-4">
               <div className="overflow-hidden rounded border border-[#E0E4DC] relative">
-                <img src="/images/실내산책.jpg" alt="100m 트랙 실내 산책" className="w-full h-[140px] sm:h-[200px] md:h-[280px] object-cover" />
+                <img src="/images/더사랑 걷기전문 사진추가2.jpg" alt="100m 트랙 실내 산책 훈련" className="w-full h-[160px] sm:h-[220px] md:h-[280px] object-cover" />
                 <span className="absolute bottom-1.5 left-1.5 sm:bottom-3 sm:left-3 bg-[#1F3D2B]/85 text-white text-[10px] sm:text-xs md:text-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded shadow">
-                  100m 트랙 안전 실내 산책
+                  100m 트랙 보행 보조 & 자율 걷기
                 </span>
               </div>
               <div className="overflow-hidden rounded border border-[#E0E4DC] relative">
-                <img src="/images/아침체조.jpg" alt="다함께 걷기 및 아침 체조" className="w-full h-[140px] sm:h-[200px] md:h-[280px] object-cover" />
+                <img src="/images/더사랑 걷기전문 사진추가.jpg" alt="선생님과 1:1 보행 동행" className="w-full h-[160px] sm:h-[220px] md:h-[280px] object-cover" />
                 <span className="absolute bottom-1.5 left-1.5 sm:bottom-3 sm:left-3 bg-[#1F3D2B]/85 text-white text-[10px] sm:text-xs md:text-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded shadow">
-                  다함께 걷기 & 아침 체조
+                  전문 인력의 안심 1:1 보행 동행
+                </span>
+              </div>
+            </div>
+
+            {/* 서브 걷기 활동 사진 3열 */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="overflow-hidden rounded border border-[#E0E4DC] relative">
+                <img src="/images/더사랑 걷기전문 사진추가3.jpg" alt="다정하게 함께 걷는 어르신들" className="w-full h-[110px] sm:h-[150px] md:h-[190px] object-cover" />
+                <span className="absolute bottom-1 left-1 bg-[#1F3D2B]/80 text-white text-[9px] sm:text-xs px-1.5 py-0.5 rounded">
+                  다정한 보행 동행
+                </span>
+              </div>
+              <div className="overflow-hidden rounded border border-[#E0E4DC] relative">
+                <img src="/images/실내산책.jpg" alt="100m 트랙 안전 실내 산책" className="w-full h-[110px] sm:h-[150px] md:h-[190px] object-cover" />
+                <span className="absolute bottom-1 left-1 bg-[#1F3D2B]/80 text-white text-[9px] sm:text-xs px-1.5 py-0.5 rounded">
+                  자유로운 트랙 걷기
+                </span>
+              </div>
+              <div className="overflow-hidden rounded border border-[#E0E4DC] relative">
+                <img src="/images/아침체조.jpg" alt="다함께 걷기 및 아침 체조" className="w-full h-[110px] sm:h-[150px] md:h-[190px] object-cover" />
+                <span className="absolute bottom-1 left-1 bg-[#1F3D2B]/80 text-white text-[9px] sm:text-xs px-1.5 py-0.5 rounded">
+                  다함께 걷기 체조
                 </span>
               </div>
             </div>
@@ -496,26 +516,34 @@ export default function App() {
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2.5 mb-4 sm:mb-6 text-xs sm:text-base md:text-lg text-[#23291F]">
               <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 스모비(Smovey) 진동 운동 — 균형 감각 회복</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 시니어 피트니스 및 필라테스링 운동</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 바디힐더 및 슬링 기구 재활 운동</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 족욕, 온열 물리치료 및 관절 스트레칭</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 시니어 전용 맞춤 피트니스 기구 운동</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 전신 관절 스트레칭 및 탄성 고무밴드 근력 운동</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 바디힐더 및 슬링 기구 재활 운동, 편백 족욕</li>
             </ul>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3.5 md:gap-4">
               <div className="flex flex-col">
-                <img src="/images/스모비운동기구.jpg" alt="스모비 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">스모비(Smovey) 운동</span>
+                <img src="/images/특화운동 스모비.jpg" alt="스모비 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">스모비(Smovey) 운동</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/특화운동 시니어 피티니스.jpg" alt="시니어 맞춤 피트니스" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">시니어 피트니스 기구</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/특화운동 관절운동.jpg" alt="관절 스트레칭" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">전신 관절 스트레칭</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/특화운동 고무밴ㄷ.jpg" alt="탄성 고무밴드 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">탄성 고무밴드 운동</span>
               </div>
               <div className="flex flex-col">
                 <img src="/images/슬링.jpg" alt="슬링 재활 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">슬링 재활 운동</span>
-              </div>
-              <div className="flex flex-col">
-                <img src="/images/바디스파이크2.jpg" alt="바디힐더 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">바디힐더 전문 운동</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">슬링 재활 운동</span>
               </div>
               <div className="flex flex-col">
                 <img src="/images/족욕.jpg" alt="족욕 물리치료" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">편백 족욕 및 물리치료</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">편백 족욕 및 물리치료</span>
               </div>
             </div>
           </div>
@@ -536,22 +564,30 @@ export default function App() {
               <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 소근육 자극 미술·공예 및 원예 체험</li>
               <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 계절별 실내 오감 체험 (딸기 수확 등)</li>
             </ul>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3.5 md:gap-4">
               <div className="flex flex-col">
-                <img src="/images/인지프로그램.jpg" alt="스마트 인지 프로그램" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">AI 및 디지털 인지 활동</span>
+                <img src="/images/인지기능 사진추가4.jpg" alt="워크북 인지 학습" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">워크북 두뇌 학습</span>
               </div>
               <div className="flex flex-col">
-                <img src="/images/인지프로그램2.jpg" alt="두뇌 자극 프로그램" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">손감각 두뇌 집중 활동</span>
+                <img src="/images/인지기능 사진추가.jpg" alt="소근육 미술 인지" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">단풍잎 미술 공예</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/인지기능 사진추가2.jpg" alt="종이꽃 만들기" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">종이꽃 공예 활동</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/인지기능 사진추가3.jpg" alt="곡물 모자이크 활동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">곡물 모자이크 인지</span>
               </div>
               <div className="flex flex-col">
                 <img src="/images/팀대결.jpg" alt="팀대결 인지활동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">팀별 협동 인지 대결</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">팀별 협동 인지 대결</span>
               </div>
               <div className="flex flex-col">
                 <img src="/images/딸기실내체험.jpg" alt="딸기 실내 오감체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">오감 자극 실내 체험</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">오감 자극 실내 체험</span>
               </div>
             </div>
           </div>
@@ -565,29 +601,35 @@ export default function App() {
             </div>
 
             {/* 숲체험 & 국화터널 */}
-            <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <div className="mb-2 sm:mb-3">
               <p className="text-xs sm:text-base md:text-lg text-[#4A5243] leading-relaxed">
                 <strong className="text-[#1F3D2B]">숲체험 & 국화터널 야외 나들이</strong> — 월 2회 전용 버스 이동, 숲해설가와 힐링 산책
               </p>
-              <span className="sm:hidden text-[11px] text-[#7A9070] font-medium flex-shrink-0">
-                밀어서 보기 →
-              </span>
             </div>
-            <div className="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x scrollbar-none mb-3">
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
-                <img src="/images/숲체험.jpg" alt="숲체험 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+            <div className="grid grid-cols-3 gap-2 sm:gap-3.5 md:gap-4 mb-3">
+              <div className="flex flex-col">
+                <img src="/images/숲체험 국화터널 사진추가.jpg" alt="국화터널 나들이" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="block text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">국화꽃 터널 산책</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
-                <img src="/images/숲체험2.jpg" alt="숲체험 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              <div className="flex flex-col">
+                <img src="/images/숲체험 사진추가.jpg" alt="숲 데크길 힐링" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="block text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">숲길 힐링 산책</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
-                <img src="/images/숲체험4.jpg" alt="숲체험 3" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              <div className="flex flex-col">
+                <img src="/images/숲체험 사진추가2.jpg" alt="야외 부스 체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="block text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">야외 오감 힐링 체험</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+              <div className="flex flex-col">
+                <img src="/images/숲체험.jpg" alt="편백 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="block text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">편백 숲길 걷기</span>
+              </div>
+              <div className="flex flex-col">
                 <img src="/images/무등산숲체험.jpg" alt="무등산 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="block text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">무등산 자연 나들이</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
-                <img src="/images/가을숲체험.jpg" alt="국화터널 및 가을 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              <div className="flex flex-col">
+                <img src="/images/가을숲체험.jpg" alt="가을 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="block text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">사계절 야외 소풍</span>
               </div>
             </div>
             <div className="bg-[#E8EDE4] p-2.5 sm:p-3 rounded text-xs sm:text-sm md:text-base font-medium text-[#1F3D2B] mb-5 sm:mb-8 text-center">
@@ -595,29 +637,35 @@ export default function App() {
             </div>
 
             {/* 맛집 탐방 */}
-            <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <div className="mb-2 sm:mb-3">
               <p className="text-xs sm:text-base md:text-lg text-[#4A5243] leading-relaxed">
                 <strong className="text-[#1F3D2B]">지역 맛집 탐방</strong> — 추어탕, 떡갈비, 오리탕 등 어르신 선호 맞춤 외식
               </p>
-              <span className="sm:hidden text-[11px] text-[#7A9070] font-medium flex-shrink-0">
-                밀어서 보기 →
-              </span>
             </div>
-            <div className="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x scrollbar-none mb-5 sm:mb-8">
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3.5 md:gap-4 mb-5 sm:mb-8">
+              <div className="flex flex-col">
                 <img src="/images/맛집탐방.jpg" alt="맛집탐방 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">건강 밥상 외식</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+              <div className="flex flex-col">
                 <img src="/images/맛집탐방2.jpg" alt="맛집탐방 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">영양 든든 식사</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+              <div className="flex flex-col">
                 <img src="/images/맛집탐방3.jpg" alt="맛집탐방 3" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">제철 보양식 탐방</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+              <div className="flex flex-col">
                 <img src="/images/맛집탐방4.jpg" alt="맛집탐방 4" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">정갈한 한정식 나들이</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+              <div className="flex flex-col">
                 <img src="/images/맛집탐방5.jpg" alt="맛집탐방 5" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">어르신 취향 맞춤 맛집</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/토요시장체험.jpg" alt="지역 시장 맛집" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">전통시장 별미 나들이</span>
               </div>
             </div>
 
@@ -655,26 +703,30 @@ export default function App() {
                 <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 어르신들이 직접 준비한 연말 송년 무대와 노래자랑</li>
               </ul>
             </div>
-            <div className="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x scrollbar-none">
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3.5 md:gap-4">
+              <div className="flex flex-col">
                 <img src="/images/생신체험.jpg" alt="생신 축하 잔치" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">생신 축하 잔치</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">생신 축하 잔치</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+              <div className="flex flex-col">
                 <img src="/images/문화예술공연.jpg" alt="문화 예술 공연 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">국악 및 무용 공연</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">국악 및 무용 공연</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+              <div className="flex flex-col">
                 <img src="/images/문화예술공연3.jpg" alt="색소폰 공연" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">색소폰 연주</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">색소폰 연주</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+              <div className="flex flex-col">
                 <img src="/images/문화예술공연2.jpg" alt="문화 예술 공연 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">전통 가락 위문 공연</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">전통 가락 위문 공연</span>
               </div>
-              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+              <div className="flex flex-col">
+                <img src="/images/문화예술공연4.jpg" alt="문화 예술 공연 3" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">흥겨운 트롯 위문 무대</span>
+              </div>
+              <div className="flex flex-col">
                 <img src="/images/어르신들이준비한송년공연2.jpg" alt="송년 공연" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">어르신 발표회</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-[#7A9070] mt-1 text-center font-medium">어르신 발표회</span>
               </div>
             </div>
           </div>
@@ -792,19 +844,19 @@ export default function App() {
             {/* Photos: on mobile horizontal swipe */}
             <div className="flex md:flex-col gap-2.5 md:gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x scrollbar-none">
               <div className="w-[230px] md:w-full flex-shrink-0 snap-start bg-white rounded border border-[#E0E4DC] overflow-hidden shadow-sm">
-                <img src="/images/건강체크.jpg" alt="간호사 혈압 및 건강 체크" className="w-full h-[150px] md:h-[190px] object-cover" />
+                <img src="/images/하루일과 간호사진 교체.jpg" alt="간호사 혈압 및 건강 체크" className="w-full h-[150px] md:h-[190px] object-cover" />
                 <div className="p-2 sm:p-3 text-xs md:text-sm text-[#1F3D2B] font-semibold bg-[#FAFBF8] border-t border-[#E0E4DC]">
                   🩺 전담 노인간호사의 활력징후 측정
                 </div>
               </div>
               <div className="w-[230px] md:w-full flex-shrink-0 snap-start bg-white rounded border border-[#E0E4DC] overflow-hidden shadow-sm">
-                <img src="/images/건강체크1.jpg" alt="꼼꼼한 투약 및 처방 관리" className="w-full h-[150px] md:h-[190px] object-cover" />
+                <img src="/images/정해진시간 투약관리 사진교체.jpg" alt="정해진 시간 1:1 맞춤 투약 관리" className="w-full h-[150px] md:h-[190px] object-cover" />
                 <div className="p-2 sm:p-3 text-xs md:text-sm text-[#1F3D2B] font-semibold bg-[#FAFBF8] border-t border-[#E0E4DC]">
                   💊 정해진 시간 철저한 개별 투약 관리
                 </div>
               </div>
               <div className="w-[230px] md:w-full flex-shrink-0 snap-start bg-white rounded border border-[#E0E4DC] overflow-hidden shadow-sm">
-                <img src="/images/실내산책.jpg" alt="100m 트랙 실내 산책" className="w-full h-[150px] md:h-[170px] object-cover" />
+                <img src="/images/더사랑 걷기전문 사진추가2.jpg" alt="100m 트랙 실내 산책" className="w-full h-[150px] md:h-[170px] object-cover" />
                 <div className="p-2 sm:p-3 text-xs md:text-sm text-[#1F3D2B] font-semibold bg-[#FAFBF8] border-t border-[#E0E4DC]">
                   🚶 100m 트랙 자유로운 실내 걷기
                 </div>
@@ -812,27 +864,27 @@ export default function App() {
             </div>
           </div>
 
-          {/* Meals Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-5 mt-6 sm:mt-12">
-            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
-              <img src="/images/아침죽과일부추김치요플레.jpg" alt="아침 죽 식단" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">아침 — 죽과 제철 반찬</div>
+          {/* Meals Cards - 5종 한 줄 배치 */}
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3 md:gap-4 mt-6 sm:mt-12">
+            <div className="bg-white border border-[#E0E4DC] rounded p-2 sm:p-3 text-center shadow-sm flex flex-col justify-between">
+              <img src="/images/아침죽과일부추김치요플레.jpg" alt="아침 죽 식단" className="w-full aspect-[4/3] object-cover rounded mb-1.5 sm:mb-2" />
+              <div className="font-semibold text-[#1F3D2B] text-[11px] sm:text-xs md:text-sm">아침 — 영양죽 차림</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
-              <img src="/images/아침.jpg" alt="아침 식단" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">아침 식사 차림</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2 sm:p-3 text-center shadow-sm flex flex-col justify-between">
+              <img src="/images/아침.jpg" alt="아침 식단" className="w-full aspect-[4/3] object-cover rounded mb-1.5 sm:mb-2" />
+              <div className="font-semibold text-[#1F3D2B] text-[11px] sm:text-xs md:text-sm">아침 — 정갈한 밥상</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
-              <img src="/images/점심저녁.jpg" alt="점심 저녁 식단 1" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">점심 · 저녁 식단 1</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2 sm:p-3 text-center shadow-sm flex flex-col justify-between">
+              <img src="/images/점심저녁.jpg" alt="점심 저녁 식단 1" className="w-full aspect-[4/3] object-cover rounded mb-1.5 sm:mb-2" />
+              <div className="font-semibold text-[#1F3D2B] text-[11px] sm:text-xs md:text-sm">점심·저녁 — 맞춤 식단 1</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
-              <img src="/images/점심저녁2.jpg" alt="점심 저녁 식단 2" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">점심 · 저녁 식단 2</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2 sm:p-3 text-center shadow-sm flex flex-col justify-between">
+              <img src="/images/점심저녁2.jpg" alt="점심 저녁 식단 2" className="w-full aspect-[4/3] object-cover rounded mb-1.5 sm:mb-2" />
+              <div className="font-semibold text-[#1F3D2B] text-[11px] sm:text-xs md:text-sm">점심·저녁 — 맞춤 식단 2</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm col-span-2 sm:col-span-4 max-w-[280px] sm:max-w-sm mx-auto w-full">
-              <img src="/images/오후간식떡케이크주스.jpg" alt="오후 간식" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">오후 간식 — 떡·과일주스</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2 sm:p-3 text-center shadow-sm col-span-2 sm:col-span-1 flex flex-col justify-between">
+              <img src="/images/오후간식떡케이크주스.jpg" alt="오후 간식" className="w-full aspect-[4/3] object-cover rounded mb-1.5 sm:mb-2" />
+              <div className="font-semibold text-[#1F3D2B] text-[11px] sm:text-xs md:text-sm">오후 간식 — 떡·생과일주스</div>
             </div>
           </div>
         </div>
@@ -907,33 +959,54 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4 md:gap-5">
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진2.jpg" alt="센터 내부 1" className="w-full aspect-[4/3] object-cover" />
-            </div>
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진3.jpg" alt="센터 내부 2" className="w-full aspect-[4/3] object-cover" />
-            </div>
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진5.jpg" alt="센터 내부 3" className="w-full aspect-[4/3] object-cover" />
-            </div>
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진6.jpg" alt="센터 내부 4" className="w-full aspect-[4/3] object-cover" />
-            </div>
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진7.jpg" alt="센터 내부 5" className="w-full aspect-[4/3] object-cover" />
-            </div>
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진43.jpg" alt="센터 내부 6" className="w-full aspect-[4/3] object-cover" />
-            </div>
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진8카페테리아.jpg" alt="카페테리아" className="w-full aspect-[4/3] object-cover" />
-              <div className="p-1.5 sm:p-2.5 text-center text-xs sm:text-sm md:text-base font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
-                카페테리아
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 md:gap-4">
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진.jpg" alt="센터 전경 및 트랙" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                200평 전경 & 100m 트랙
               </div>
             </div>
-            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
-              <img src="/images/센터사진.jpg" alt="센터 전경" className="w-full aspect-[4/3] object-cover" />
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진2.jpg" alt="탁 트인 통창 메인홀" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                탁 트인 마운틴뷰 메인홀
+              </div>
+            </div>
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진3.jpg" alt="안전한 보행 트랙 공간" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                계단 없는 안전 보행로
+              </div>
+            </div>
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진5.jpg" alt="프로그램 및 활동 공간" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                쾌적한 생활 & 활동실
+              </div>
+            </div>
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진6.jpg" alt="재활 운동 및 휴게 구역" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                재활 운동 & 케어 공간
+              </div>
+            </div>
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진7.jpg" alt="편안한 생활 라운지" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                햇살 가득 휴게 라운지
+              </div>
+            </div>
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진8카페테리아.jpg" alt="카페테리아 휴게실" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                어르신 전용 카페테리아
+              </div>
+            </div>
+            <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm flex flex-col">
+              <img src="/images/센터사진43.jpg" alt="편안한 힐링 쉼터" className="w-full aspect-[4/3] object-cover" />
+              <div className="p-1.5 sm:p-2 text-center text-[11px] sm:text-xs md:text-sm font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+                아늑한 편백 힐링 쉼터
+              </div>
             </div>
           </div>
         </div>
@@ -1225,9 +1298,9 @@ export default function App() {
         <div className="max-w-[800px] mx-auto px-4 sm:px-6">
           <div className="flex justify-center mb-3 sm:mb-6">
             <img
-              src="/logo.svg"
+              src="/logo.png"
               alt="더사랑 주간보호센터 로고"
-              className="h-10 sm:h-14 w-auto object-contain brightness-0 invert opacity-95"
+              className="h-14 sm:h-20 w-auto object-contain drop-shadow"
             />
           </div>
           <h2 className="font-serif-custom text-xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 text-[#FBFAF7] leading-snug">
@@ -1279,9 +1352,9 @@ export default function App() {
         <div className="max-w-[1080px] mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center gap-3 sm:gap-4">
             <img
-              src="/logo.svg"
+              src="/logo.png"
               alt="더사랑 주간보호센터 로고"
-              className="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-80"
+              className="h-10 sm:h-12 w-auto object-contain drop-shadow"
             />
             <div>
               <div className="font-serif-custom text-base sm:text-xl font-bold text-[#FBFAF7] mb-0.5 sm:mb-1">
@@ -1305,14 +1378,6 @@ export default function App() {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold bg-[#03CF5D] text-white rounded hover:bg-[#02b350] transition-colors shadow-sm"
             >
               블로그 바로가기
-            </a>
-            <a
-              href="https://www.youtube.com/@thesarang8090"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold bg-[#CC0000] text-white rounded hover:bg-[#b00000] transition-colors shadow-sm"
-            >
-              유튜브
             </a>
             <a
               href="https://map.naver.com/p/entry/place/1313104249?placePath=%2Fhome%3Fentry%3Dplt%26from%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608061030%26locale%3Dko%26svcName%3Dmap_pcv5&searchType=place&lng=126.8951916&lat=35.1226735&c=15.00,0,0,0,dh"

@@ -1,6 +1,6 @@
 {
   "name": "더사랑 주간보호센터",
-  "description": "마음대로 걸을 수 있는 200평 단층 숲세권 더사랑 주간보호센터 - 전화상담 및 견학신청 랜딩페이지",
+  "description": "100m 트랙이 있는 200평 넓은 센터, 걷기전문·실내산책·운동재활 더사랑 주간보호센터 - 전화상담, 블로그, 유튜브, 오시는길, 라운딩 및 무료 쿠폰 안내",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

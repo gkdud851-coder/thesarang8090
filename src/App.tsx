@@ -60,25 +60,84 @@ export default function App() {
       `}</style>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#FBFAF7]/95 backdrop-blur-md border-b border-[#E0E4DC] py-4 transition-all">
+      <header className="sticky top-0 z-50 bg-[#FBFAF7]/95 backdrop-blur-md border-b border-[#E0E4DC] py-3.5 transition-all">
         <div className="max-w-[1080px] mx-auto px-6 flex justify-between items-center">
-          <a href="#" className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] tracking-tight">
-            더사랑 주간보호센터
+          {/* Logo & Center Name */}
+          <a href="#" className="flex items-center gap-2.5 group">
+            <img
+              src="/logo.svg"
+              alt="더사랑 주간보호센터 로고"
+              className="h-10 w-auto object-contain"
+            />
           </a>
-          <div className="flex items-center gap-3">
+
+          {/* Navigation Menus (전화상담 / 블로그 / 유튜브 / 오시는길) */}
+          <nav className="hidden md:flex items-center gap-6 text-base font-semibold text-[#23291F]">
             <a
               href="tel:062-675-8090"
-              className="hidden sm:inline-flex items-center justify-center px-6 py-3 text-base md:text-lg font-semibold text-[#1F3D2B] border border-[#1F3D2B] rounded hover:bg-[#1F3D2B]/5 transition-colors"
+              className="hover:text-[#1F3D2B] transition-colors flex items-center gap-1"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#03CF5D]" />
+              전화상담
+            </a>
+            <a
+              href="https://blog.naver.com/sarang8090"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#1F3D2B] transition-colors"
+            >
+              블로그
+            </a>
+            <a
+              href="https://www.youtube.com/@thesarang8090"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#1F3D2B] transition-colors text-[#CC0000]"
+            >
+              유튜브
+            </a>
+            <a
+              href="https://map.naver.com/p/entry/place/1313104249?placePath=%2Fhome%3Fentry%3Dplt%26from%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608061030%26locale%3Dko%26svcName%3Dmap_pcv5&searchType=place&lng=126.8951916&lat=35.1226735&c=15.00,0,0,0,dh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#1F3D2B] transition-colors text-[#0068FF]"
+            >
+              오시는길
+            </a>
+          </nav>
+
+          <div className="flex items-center gap-2.5">
+            <a
+              href="tel:062-675-8090"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 text-sm md:text-base font-semibold text-[#1F3D2B] border border-[#1F3D2B] rounded hover:bg-[#1F3D2B]/5 transition-colors"
             >
               062-675-8090
             </a>
             <a
               href="tel:062-675-8090"
-              className="inline-flex items-center justify-center px-6 py-3 text-base md:text-lg font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors shadow-sm"
+              className="inline-flex items-center justify-center px-4 py-2.5 text-sm md:text-base font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors shadow-sm"
             >
-              견학 신청
+              견학 · 상담 신청
             </a>
           </div>
+        </div>
+
+        {/* Mobile Sub-Nav */}
+        <div className="md:hidden flex items-center justify-around border-t border-[#E0E4DC] mt-2.5 pt-2 px-4 text-xs font-semibold text-[#4A5243]">
+          <a href="tel:062-675-8090" className="py-1 text-[#1F3D2B]">전화상담</a>
+          <span className="text-[#E0E4DC]">|</span>
+          <a href="https://blog.naver.com/sarang8090" target="_blank" rel="noopener noreferrer" className="py-1">블로그</a>
+          <span className="text-[#E0E4DC]">|</span>
+          <a href="https://www.youtube.com/@thesarang8090" target="_blank" rel="noopener noreferrer" className="py-1 text-[#CC0000]">유튜브</a>
+          <span className="text-[#E0E4DC]">|</span>
+          <a
+            href="https://map.naver.com/p/entry/place/1313104249?placePath=%2Fhome%3Fentry%3Dplt%26from%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608061030%26locale%3Dko%26svcName%3Dmap_pcv5&searchType=place&lng=126.8951916&lat=35.1226735&c=15.00,0,0,0,dh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="py-1 text-[#0068FF]"
+          >
+            오시는길
+          </a>
         </div>
 
         {/* Scroll Progress Bar */}
@@ -91,32 +150,53 @@ export default function App() {
       </header>
 
       {/* ① Hero Section */}
-      <section className="py-16 md:py-28 bg-[#FBFAF7]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="bg-white border border-[#E0E4DC] rounded p-8 md:p-12 shadow-sm">
-              <span className="inline-block text-base md:text-lg font-semibold text-[#7A9070] mb-3 tracking-tight">
-                마음대로 걸을 수 있는 곳
+      <section className="py-8 sm:py-14 md:py-24 bg-[#FBFAF7]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-12 items-center">
+            <div className="bg-white border border-[#E0E4DC] rounded p-4 sm:p-7 md:p-12 shadow-sm">
+              <span className="inline-block text-sm sm:text-base md:text-lg font-semibold text-[#7A9070] mb-1.5 tracking-tight">
+                걷기전문 · 실내산책 · 운동재활
               </span>
-              <h1 className="font-serif-custom text-3xl md:text-5xl font-bold text-[#1F3D2B] mb-6 leading-tight tracking-tight">
+              <h1 className="font-serif-custom text-2xl sm:text-3xl md:text-5xl font-bold text-[#1F3D2B] mb-3 sm:mb-5 leading-tight tracking-tight">
                 더사랑 주간보호센터
               </h1>
-              <p className="text-lg md:text-xl text-[#4A5243] leading-relaxed mb-8">
-                계단 없는 단층 200평, 창밖은 온통 산.<br />
-                걷고 싶으실 때 언제든 걸으실 수 있습니다.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+
+              {/* [3. 메인 카피 교체] */}
+              <div className="mb-5 sm:mb-8 space-y-2.5 sm:space-y-4">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold text-[#1F3D2B] leading-snug">
+                  100m 트랙이 있는 넓은 센터(걷기전문, 실내산책)
+                </p>
+                <p className="text-sm sm:text-base md:text-lg text-[#4A5243] leading-relaxed">
+                  날마다, 시간 날 때마다, 움직일 때마다 걷는 운동이 가능한 센터
+                </p>
+                <div className="pt-1 flex flex-col gap-2">
+                  <div className="flex items-center gap-2 sm:gap-2.5 bg-[#E8EDE4] text-[#1F3D2B] border border-[#7A9070]/30 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded font-semibold text-xs sm:text-sm md:text-base">
+                    <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#1F3D2B] text-white font-black text-[10px] sm:text-xs flex items-center justify-center flex-shrink-0">
+                      YES
+                    </span>
+                    <span>걷기 전문 더사랑 선택 YES</span>
+                  </div>
+                  <div className="flex items-center gap-2 sm:gap-2.5 bg-[#FDF2F2] text-[#B91C1C] border border-[#FCA5A5]/40 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded font-semibold text-xs sm:text-sm md:text-base">
+                    <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#B91C1C] text-white font-black text-[10px] sm:text-xs flex items-center justify-center flex-shrink-0">
+                      NO
+                    </span>
+                    <span>하루종일 앉아만 있는 센터 NO</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                 <a
                   href="tel:062-675-8090"
-                  className="inline-flex items-center justify-center px-7 py-3.5 text-base md:text-lg font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors text-center"
+                  className="inline-flex items-center justify-center px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base md:text-lg font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors text-center"
                 >
                   상담 문의 062-675-8090
                 </a>
                 <a
                   href="tel:062-675-8090"
-                  className="inline-flex items-center justify-center px-7 py-3.5 text-base md:text-lg font-semibold text-[#1F3D2B] border border-[#1F3D2B] rounded hover:bg-[#1F3D2B]/5 transition-colors text-center"
+                  className="inline-flex items-center justify-center px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base md:text-lg font-semibold text-[#1F3D2B] border border-[#1F3D2B] rounded hover:bg-[#1F3D2B]/5 transition-colors text-center"
                 >
-                  견학 신청
+                  견학 · 라운딩 신청
                 </a>
               </div>
             </div>
@@ -124,62 +204,95 @@ export default function App() {
               <img
                 src="/images/센터사진.jpg"
                 alt="더사랑 주간보호센터 전경"
-                className="w-full h-[280px] md:h-[480px] object-cover"
+                className="w-full h-[200px] sm:h-[280px] md:h-[480px] object-cover"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ② Special Features Grid */}
-      <section className="py-16 md:py-28 bg-[#E8EDE4]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-3">
+      {/* ② Special Features Grid [4. '특별함' 3개 항목 수정] */}
+      <section className="py-8 sm:py-14 md:py-24 bg-[#E8EDE4]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-2 sm:mb-3">
               더사랑 주간보호센터의 특별함
             </h2>
-            <p className="text-base md:text-lg text-[#7A9070]">
+            <p className="text-sm sm:text-base md:text-lg text-[#7A9070]">
               어르신이 안전하고 자유롭게 지내실 수 있는 최적의 환경
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border border-[#E0E4DC] rounded overflow-hidden shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-6">
+            {/* ① 걷기전문, 실내산책 전문 */}
+            <div className="bg-white border border-[#E0E4DC] rounded overflow-hidden shadow-sm flex flex-col">
               <img
                 src="/images/실내산책.jpg"
-                alt="실내 산책 공간"
+                alt="100m 트랙 실내산책 공간"
                 className="w-full aspect-[4/3] object-cover"
               />
-              <div className="p-6">
-                <h3 className="font-serif-custom text-xl font-bold text-[#1F3D2B] mb-2">200평 단층</h3>
-                <p className="text-base text-[#4A5243] leading-relaxed">
-                  계단 없이 한 층. 부딪힘 없이 실내 산책이 가능합니다.
-                </p>
+              <div className="p-4 sm:p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <div className="text-[11px] sm:text-xs font-bold text-[#7A9070] mb-0.5 sm:mb-1">특별함 01</div>
+                  <h3 className="font-serif-custom text-lg sm:text-xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
+                    걷기전문, 실내산책 전문
+                  </h3>
+                  <p className="text-xs sm:text-base text-[#4A5243] leading-relaxed">
+                    100m 트랙이 있는 넓은 센터(200평), 계단없이 한 층, 부딪힘 없이 실내산책 가능
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded overflow-hidden shadow-sm">
-              <img
-                src="/images/센터사진7.jpg"
-                alt="숲 조망 전경"
-                className="w-full aspect-[4/3] object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-serif-custom text-xl font-bold text-[#1F3D2B] mb-2">숲세권</h3>
-                <p className="text-base text-[#4A5243] leading-relaxed">
-                  앞뒤가 유리창. 앞은 제석산, 뒤는 금당산.
-                </p>
+
+            {/* ② 운동재활 전문 */}
+            <div className="bg-white border border-[#E0E4DC] rounded overflow-hidden shadow-sm flex flex-col">
+              <div className="relative">
+                <img
+                  src="/images/슬링.jpg"
+                  alt="운동재활 기구 슬링 및 필라테스링"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+                <span className="absolute bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 bg-black/60 text-white text-[10px] sm:text-xs px-2 py-0.5 sm:px-2.5 sm:py-1 rounded">
+                  필라테스링 높이~ 높이~ 더높이~~~~
+                </span>
+              </div>
+              <div className="p-4 sm:p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <div className="text-[11px] sm:text-xs font-bold text-[#7A9070] mb-0.5 sm:mb-1">특별함 02</div>
+                  <h3 className="font-serif-custom text-lg sm:text-xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
+                    운동재활 전문
+                  </h3>
+                  <p className="text-xs sm:text-base font-semibold text-[#1F3D2B] mb-1 sm:mb-2">
+                    &quot;넓은 곳에서 마음대로 운동하세요^^&quot;
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base text-[#4A5243] leading-relaxed">
+                    바디힐더, 슬링, 스모비, 필라테스링 등 전문화된 운동기구를 이용한 재활 운동
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded overflow-hidden shadow-sm">
-              <img
-                src="/images/건강체크.jpg"
-                alt="건강 상태 확인"
-                className="w-full aspect-[4/3] object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-serif-custom text-xl font-bold text-[#1F3D2B] mb-2">오전 7시 개원</h3>
-                <p className="text-base text-[#4A5243] leading-relaxed">
-                  등원 즉시 노인전문간호사가 건강 상태를 확인합니다.
-                </p>
+
+            {/* ③ 특화된 사회적응 프로그램 */}
+            <div className="bg-white border border-[#E0E4DC] rounded overflow-hidden shadow-sm flex flex-col">
+              <div className="relative">
+                <img
+                  src="/images/숲체험.jpg"
+                  alt="숲체험 나들이"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+                <span className="absolute bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 bg-black/60 text-white text-[10px] sm:text-xs px-2 py-0.5 sm:px-2.5 sm:py-1 rounded">
+                  가슴펴고 하늘을 향해 숨, 깊~~~게 피톤치드 마시기
+                </span>
+              </div>
+              <div className="p-4 sm:p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <div className="text-[11px] sm:text-xs font-bold text-[#7A9070] mb-0.5 sm:mb-1">특별함 03</div>
+                  <h3 className="font-serif-custom text-lg sm:text-xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
+                    특화된 사회적응 프로그램
+                  </h3>
+                  <p className="text-xs sm:text-sm md:text-base text-[#4A5243] leading-relaxed">
+                    숲체험, 나들이, 맛집탐방, 시장보기, 이미용실 이용 등... 지역사회 속에서 행복찾기
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -187,18 +300,18 @@ export default function App() {
       </section>
 
       {/* ③ Director Greeting */}
-      <section className="py-16 md:py-28 bg-[#FBFAF7]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-8 md:gap-12 items-start">
+      <section className="py-8 sm:py-14 md:py-24 bg-[#FBFAF7]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-5 md:gap-12 items-start">
             <div className="overflow-hidden rounded border border-[#E0E4DC] shadow-sm">
               <img
                 src="/images/대표원장 인삿말.jpg"
                 alt="임의숙 원장"
-                className="w-full h-[360px] md:h-[520px] object-cover"
+                className="w-full h-[240px] sm:h-[340px] md:h-[520px] object-cover"
               />
             </div>
-            <div className="text-base md:text-lg leading-relaxed text-[#23291F] space-y-5">
-              <p className="text-xl font-medium text-[#1F3D2B]">
+            <div className="text-sm sm:text-base md:text-lg leading-relaxed text-[#23291F] space-y-3 sm:space-y-4 md:space-y-5">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-[#1F3D2B]">
                 &quot;어르신~~&quot;<br />이 말 한마디에 마음이 따뜻해지고, 또 애잔해집니다.
               </p>
               <p>
@@ -210,7 +323,7 @@ export default function App() {
               <p>
                 저는 어릴 때 할머니 할아버지 사랑을 듬뿍 받고 자랐어요.<br />
                 그 마음이 이어져 사회복지를 공부했고,<br />
-                어린이집부터 요양병원까지 30여 년을 어르신들과 함께했습니다.
+                노인복지시설부터 요양병원까지 30여 년을 어르신들과 함께했습니다.
               </p>
               <p>
                 어느덧 제 나이도 예순을 바라봅니다.<br />
@@ -221,7 +334,7 @@ export default function App() {
                 얼굴에 근심이 비치면 무슨 일이 있으신지 걱정이 앞섭니다.
               </p>
               <p>어르신이 웃고 행복하실 수 있도록 마음을 다하겠습니다.</p>
-              <div className="pt-6 text-right font-serif-custom text-xl font-bold text-[#1F3D2B]">
+              <div className="pt-3 sm:pt-6 text-right font-serif-custom text-base sm:text-xl font-bold text-[#1F3D2B]">
                 더사랑 주간보호센터 원장 임의숙
               </div>
             </div>
@@ -230,23 +343,23 @@ export default function App() {
       </section>
 
       {/* ④ Senior Story */}
-      <section className="py-16 md:py-28 bg-[#E8EDE4]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] leading-snug">
+      <section className="py-8 sm:py-14 md:py-24 bg-[#E8EDE4]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-5 sm:mb-8">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] leading-snug">
               &quot;죽을 때까지 못 신을 줄 알았던 새 등산화를<br />숲체험에서 신었습니다&quot;
             </h2>
           </div>
 
-          <div className="mb-12 overflow-hidden rounded border border-[#E0E4DC] shadow-sm">
+          <div className="mb-5 sm:mb-8 md:mb-12 overflow-hidden rounded border border-[#E0E4DC] shadow-sm">
             <img
               src="/images/사연자어르신숲체험사진.jpg"
               alt="숲체험에 참여하신 김OO 어르신"
-              className="w-full h-[280px] md:h-[480px] object-cover"
+              className="w-full h-[180px] sm:h-[260px] md:h-[480px] object-cover"
             />
           </div>
 
-          <div className="max-w-[840px] mx-auto text-base md:text-xl leading-relaxed text-[#23291F] space-y-6">
+          <div className="max-w-[840px] mx-auto text-sm sm:text-base md:text-xl leading-relaxed text-[#23291F] space-y-3 sm:space-y-4 md:space-y-6">
             <p>
               김○○ 어르신은 여든여섯 되신 남자 어르신이에요.<br />
               2025년 6월부터 저희 센터에 나오고 계십니다.<br />
@@ -276,13 +389,13 @@ export default function App() {
           </div>
 
           {/* Signature Quote 1 */}
-          <div className="my-10 max-w-[840px] mx-auto bg-[#1F3D2B] text-[#FBFAF7] p-8 md:p-12 rounded-lg text-center shadow-lg border border-white/10">
-            <blockquote className="font-serif-custom text-xl md:text-3xl font-bold leading-relaxed">
+          <div className="my-4 sm:my-6 md:my-10 max-w-[840px] mx-auto bg-[#1F3D2B] text-[#FBFAF7] p-4 sm:p-6 md:p-12 rounded-lg text-center shadow-lg border border-white/10">
+            <blockquote className="font-serif-custom text-base sm:text-xl md:text-3xl font-bold leading-relaxed">
               &quot;마음대로 운동할 수 있는 곳이 다 있다니.&quot;
             </blockquote>
           </div>
 
-          <div className="max-w-[840px] mx-auto text-base md:text-xl leading-relaxed text-[#23291F] space-y-6">
+          <div className="max-w-[840px] mx-auto text-sm sm:text-base md:text-xl leading-relaxed text-[#23291F] space-y-3 sm:space-y-4 md:space-y-6">
             <p>
               센터가 넓어서 걷고 싶을 때 걸을 수 있고,<br />
               직원들이 옆에서 친절하게 같이 걸어주니 너무 좋다고 하셨어요.
@@ -299,13 +412,13 @@ export default function App() {
           </div>
 
           {/* Signature Quote 2 */}
-          <div className="my-10 max-w-[840px] mx-auto bg-[#1F3D2B] text-[#FBFAF7] p-8 md:p-12 rounded-lg text-center shadow-lg border border-white/10">
-            <blockquote className="font-serif-custom text-xl md:text-3xl font-bold leading-relaxed">
+          <div className="my-4 sm:my-6 md:my-10 max-w-[840px] mx-auto bg-[#1F3D2B] text-[#FBFAF7] p-4 sm:p-6 md:p-12 rounded-lg text-center shadow-lg border border-white/10">
+            <blockquote className="font-serif-custom text-base sm:text-xl md:text-3xl font-bold leading-relaxed">
               &quot;나에게 이런 기적 같은 일이 있다니.&quot;
             </blockquote>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-10">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 my-4 sm:my-8">
             <img
               src="/images/어르신등산화.jpg"
               alt="어르신의 새 등산화"
@@ -318,7 +431,7 @@ export default function App() {
             />
           </div>
 
-          <div className="max-w-[840px] mx-auto text-base md:text-xl leading-relaxed text-[#23291F] space-y-6">
+          <div className="max-w-[840px] mx-auto text-sm sm:text-base md:text-xl leading-relaxed text-[#23291F] space-y-3 sm:space-y-4 md:space-y-6">
             <p>
               아프시기 전에 등산화를 사두셨는데,<br />
               한 번도 못 신어보고 죽겠구나 생각하셨대요.<br />
@@ -333,252 +446,448 @@ export default function App() {
         </div>
       </section>
 
-      {/* ⑤ Programs */}
-      <section className="py-16 md:py-28 bg-[#FBFAF7]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-3">
+      {/* ⑤ Programs [6. 프로그램 섹션 재구성: 1~5 순서 재구성] */}
+      <section className="py-8 sm:py-14 md:py-24 bg-[#FBFAF7]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-10 md:mb-16">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-2 sm:mb-3">
               프로그램
             </h2>
-            <p className="text-base md:text-lg text-[#7A9070]">
-              몸과 마음의 활력을 되찾는 다채로운 일상
+            <p className="text-sm sm:text-base md:text-lg text-[#7A9070]">
+              어르신의 신체 건강과 인지 활력을 되찾아 드리는 특화 프로그램
             </p>
           </div>
 
-          {/* 5-1. 바깥 나들이 */}
-          <div className="mb-16">
-            <div className="border-b-2 border-[#E8EDE4] pb-3 mb-6">
-              <h3 className="font-serif-custom text-2xl md:text-3xl font-bold text-[#1F3D2B]">
-                5-1. 바깥 나들이
+          {/* 1. 걷기전문, 산책전문 */}
+          <div className="mb-8 sm:mb-12 md:mb-16">
+            <div className="border-b-2 border-[#E8EDE4] pb-2 sm:pb-3 mb-3 sm:mb-4">
+              <h3 className="font-serif-custom text-lg sm:text-2xl md:text-3xl font-bold text-[#1F3D2B]">
+                1. 걷기전문, 산책전문
               </h3>
             </div>
-            <p className="text-base md:text-lg text-[#4A5243] mb-4">
-              <strong className="text-[#1F3D2B]">숲체험</strong> — 월 2회 전용 버스로 이동. 숲해설가와 함께 숲길 1시간 걷기, 실내 체험 활동 1시간.
+            <p className="text-xs sm:text-base md:text-lg text-[#4A5243] mb-3 sm:mb-4 leading-relaxed">
+              <strong className="text-[#1F3D2B]">100m 실내 트랙 산책로 상시 개방</strong> — 계단 없이 평평한 200평 단층 공간에서 보행차 및 자율 걷기, 아침 다함께 걷기 운동을 시간 날 때마다 진행합니다.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 md:gap-4 mb-8">
-              <img src="/images/숲체험.jpg" alt="숲체험 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/숲체험2.jpg" alt="숲체험 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/숲체험4.jpg" alt="숲체험 3" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/무등산숲체험.jpg" alt="무등산 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/가을숲체험.jpg" alt="가을 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4 mb-4 sm:mb-6">
+              <div className="overflow-hidden rounded border border-[#E0E4DC] relative">
+                <img src="/images/실내산책.jpg" alt="100m 트랙 실내 산책" className="w-full h-[140px] sm:h-[200px] md:h-[280px] object-cover" />
+                <span className="absolute bottom-1.5 left-1.5 sm:bottom-3 sm:left-3 bg-[#1F3D2B]/85 text-white text-[10px] sm:text-xs md:text-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded shadow">
+                  100m 트랙 안전 실내 산책
+                </span>
+              </div>
+              <div className="overflow-hidden rounded border border-[#E0E4DC] relative">
+                <img src="/images/아침체조.jpg" alt="다함께 걷기 및 아침 체조" className="w-full h-[140px] sm:h-[200px] md:h-[280px] object-cover" />
+                <span className="absolute bottom-1.5 left-1.5 sm:bottom-3 sm:left-3 bg-[#1F3D2B]/85 text-white text-[10px] sm:text-xs md:text-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded shadow">
+                  다함께 걷기 & 아침 체조
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. 특화된 운동 · 재활 */}
+          <div className="mb-8 sm:mb-12 md:mb-16">
+            <div className="border-b-2 border-[#E8EDE4] pb-2 sm:pb-3 mb-3 sm:mb-4">
+              <h3 className="font-serif-custom text-lg sm:text-2xl md:text-3xl font-bold text-[#1F3D2B]">
+                2. 특화된 운동 · 재활
+              </h3>
+            </div>
+            <p className="text-xs sm:text-base md:text-lg text-[#4A5243] mb-3 sm:mb-4 leading-relaxed">
+              근력 저하와 관절 굳음을 예방하고 잔존 기능을 강화하는 맞춤형 재활 피트니스입니다.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2.5 mb-4 sm:mb-6 text-xs sm:text-base md:text-lg text-[#23291F]">
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 스모비(Smovey) 진동 운동 — 균형 감각 회복</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 시니어 피트니스 및 필라테스링 운동</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 바디힐더 및 슬링 기구 재활 운동</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 족욕, 온열 물리치료 및 관절 스트레칭</li>
+            </ul>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+              <div className="flex flex-col">
+                <img src="/images/스모비운동기구.jpg" alt="스모비 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">스모비(Smovey) 운동</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/슬링.jpg" alt="슬링 재활 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">슬링 재활 운동</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/바디스파이크2.jpg" alt="바디힐더 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">바디힐더 전문 운동</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/족욕.jpg" alt="족욕 물리치료" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">편백 족욕 및 물리치료</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. 인지기능 향상프로그램 */}
+          <div className="mb-8 sm:mb-12 md:mb-16">
+            <div className="border-b-2 border-[#E8EDE4] pb-2 sm:pb-3 mb-3 sm:mb-4">
+              <h3 className="font-serif-custom text-lg sm:text-2xl md:text-3xl font-bold text-[#1F3D2B]">
+                3. 인지기능 향상프로그램
+              </h3>
+            </div>
+            <p className="text-xs sm:text-base md:text-lg text-[#4A5243] mb-3 sm:mb-4 leading-relaxed">
+              스마트 AI 기술을 활용한 디지털 인지 훈련과 손을 쓰는 오감 자극 프로그램으로 치매를 예방하고 뇌 활성화를 돕습니다.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2.5 mb-4 sm:mb-6 text-xs sm:text-base md:text-lg text-[#23291F]">
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> AI 활용 스마트 디지털 인지 강화 훈련</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 팀별 두뇌 대결 및 협동 블록 게임</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 소근육 자극 미술·공예 및 원예 체험</li>
+              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 계절별 실내 오감 체험 (딸기 수확 등)</li>
+            </ul>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+              <div className="flex flex-col">
+                <img src="/images/인지프로그램.jpg" alt="스마트 인지 프로그램" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">AI 및 디지털 인지 활동</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/인지프로그램2.jpg" alt="두뇌 자극 프로그램" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">손감각 두뇌 집중 활동</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/팀대결.jpg" alt="팀대결 인지활동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">팀별 협동 인지 대결</span>
+              </div>
+              <div className="flex flex-col">
+                <img src="/images/딸기실내체험.jpg" alt="딸기 실내 오감체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">오감 자극 실내 체험</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. 특화된 사회적응프로그램 */}
+          <div className="mb-8 sm:mb-12 md:mb-16">
+            <div className="border-b-2 border-[#E8EDE4] pb-2 sm:pb-3 mb-4 sm:mb-6">
+              <h3 className="font-serif-custom text-lg sm:text-2xl md:text-3xl font-bold text-[#1F3D2B]">
+                4. 특화된 사회적응프로그램
+              </h3>
             </div>
 
-            <p className="text-base md:text-lg text-[#4A5243] mb-4">
-              <strong className="text-[#1F3D2B]">맛집 탐방</strong> — 추어탕, 떡갈비, 오리탕, 쌈밥. 어르신들이 원하시는 메뉴로 정합니다.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 md:gap-4 mb-8">
-              <img src="/images/맛집탐방.jpg" alt="맛집탐방 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/맛집탐방2.jpg" alt="맛집탐방 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/맛집탐방3.jpg" alt="맛집탐방 3" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/맛집탐방4.jpg" alt="맛집탐방 4" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/맛집탐방5.jpg" alt="맛집탐방 5" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+            {/* 숲체험 & 국화터널 */}
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <p className="text-xs sm:text-base md:text-lg text-[#4A5243] leading-relaxed">
+                <strong className="text-[#1F3D2B]">숲체험 & 국화터널 야외 나들이</strong> — 월 2회 전용 버스 이동, 숲해설가와 힐링 산책
+              </p>
+              <span className="sm:hidden text-[11px] text-[#7A9070] font-medium flex-shrink-0">
+                밀어서 보기 →
+              </span>
+            </div>
+            <div className="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x scrollbar-none mb-3">
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/숲체험.jpg" alt="숲체험 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/숲체험2.jpg" alt="숲체험 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/숲체험4.jpg" alt="숲체험 3" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/무등산숲체험.jpg" alt="무등산 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/가을숲체험.jpg" alt="국화터널 및 가을 숲체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+            </div>
+            <div className="bg-[#E8EDE4] p-2.5 sm:p-3 rounded text-xs sm:text-sm md:text-base font-medium text-[#1F3D2B] mb-5 sm:mb-8 text-center">
+              🌲 &quot;은은한 <strong className="font-bold underline">편백</strong> 오일향 가득한 숲길 걷기 및 국화터널 나들이로 몸과 마음의 피톤치드 충전!&quot;
             </div>
 
-            <p className="text-base md:text-lg text-[#4A5243] mb-4">
-              <strong className="text-[#1F3D2B]">토요시장 구경</strong> — 장 보기와 물건값 계산으로 일상 감각을 유지합니다.
+            {/* 맛집 탐방 */}
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <p className="text-xs sm:text-base md:text-lg text-[#4A5243] leading-relaxed">
+                <strong className="text-[#1F3D2B]">지역 맛집 탐방</strong> — 추어탕, 떡갈비, 오리탕 등 어르신 선호 맞춤 외식
+              </p>
+              <span className="sm:hidden text-[11px] text-[#7A9070] font-medium flex-shrink-0">
+                밀어서 보기 →
+              </span>
+            </div>
+            <div className="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x scrollbar-none mb-5 sm:mb-8">
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/맛집탐방.jpg" alt="맛집탐방 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/맛집탐방2.jpg" alt="맛집탐방 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/맛집탐방3.jpg" alt="맛집탐방 3" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/맛집탐방4.jpg" alt="맛집탐방 4" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start">
+                <img src="/images/맛집탐방5.jpg" alt="맛집탐방 5" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+              </div>
+            </div>
+
+            {/* 시장보기 & 가족참여 */}
+            <p className="text-xs sm:text-base md:text-lg text-[#4A5243] mb-2 sm:mb-3 leading-relaxed">
+              <strong className="text-[#1F3D2B]">토요시장 구경 & 장보기</strong> — 장보기와 물건값 계산으로 사회 적응력과 일상 감각 유지
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4 mb-5 sm:mb-8">
               <img src="/images/토요시장체험.jpg" alt="토요시장 구경 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
               <img src="/images/토요시장체험2.jpg" alt="토요시장 구경 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
             </div>
 
-            <p className="text-base md:text-lg text-[#4A5243] mb-4">
-              <strong className="text-[#1F3D2B]">가족 참여 프로그램</strong> — 보호자와 함께 걷는 숲길, 꽃손수건 만들기, 포토북 만들기.
+            <p className="text-xs sm:text-base md:text-lg text-[#4A5243] mb-2 sm:mb-3 leading-relaxed">
+              <strong className="text-[#1F3D2B]">가족 참여 프로그램</strong> — 보호자와 함께 걷는 숲길, 꽃손수건 만들기, 추억의 포토북
             </p>
             <div>
               <img src="/images/가족과함께참여하는프로그램.jpg" alt="가족 참여 프로그램" className="w-full aspect-[16/9] object-cover rounded border border-[#E0E4DC]" />
             </div>
           </div>
 
-          {/* 5-2. 운동 · 재활 */}
-          <div className="mb-16">
-            <div className="border-b-2 border-[#E8EDE4] pb-3 mb-4">
-              <h3 className="font-serif-custom text-2xl md:text-3xl font-bold text-[#1F3D2B]">
-                5-2. 운동 · 재활
-              </h3>
-            </div>
-            <p className="text-base md:text-lg text-[#4A5243] mb-4">근력 저하와 관절 굳음을 예방합니다.</p>
-            <ul className="space-y-2 mb-6 text-base md:text-lg text-[#23291F]">
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 슬링, 바디스파이크 등 기구 운동</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 스모비 운동 (파킨슨·치매 어르신용)</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 맨손 근력 운동, 아침 체조</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 족욕, 물리치료</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 실내 산책 (상시)</li>
-            </ul>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-              <img src="/images/슬링.jpg" alt="슬링 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/바디스파이크2.jpg" alt="바디스파이크 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/스모비운동기구.jpg" alt="스모비 운동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/족욕.jpg" alt="족욕 체조" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-            </div>
-          </div>
-
-          {/* 5-3. 인지 활동 */}
-          <div className="mb-16">
-            <div className="border-b-2 border-[#E8EDE4] pb-3 mb-4">
-              <h3 className="font-serif-custom text-2xl md:text-3xl font-bold text-[#1F3D2B]">
-                5-3. 인지 활동
-              </h3>
-            </div>
-            <p className="text-base md:text-lg text-[#4A5243] mb-4">치매 예방 프로그램입니다.</p>
-            <ul className="space-y-2 mb-6 text-base md:text-lg text-[#23291F]">
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 팀별 게임, 블록 쌓기</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 손을 쓰는 활동</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 디지털 인지 프로그램</li>
-            </ul>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-              <img src="/images/인지프로그램.jpg" alt="인지 프로그램 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/인지프로그램2.jpg" alt="인지 프로그램 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/팀대결.jpg" alt="팀대결 인지활동" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/딸기실내체험.jpg" alt="딸기 실내 체험" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-            </div>
-          </div>
-
-          {/* 5-4. 공연 */}
+          {/* 5. 공연 */}
           <div>
-            <div className="border-b-2 border-[#E8EDE4] pb-3 mb-4">
-              <h3 className="font-serif-custom text-2xl md:text-3xl font-bold text-[#1F3D2B]">
-                5-4. 공연
+            <div className="border-b-2 border-[#E8EDE4] pb-2 sm:pb-3 mb-3 sm:mb-4">
+              <h3 className="font-serif-custom text-lg sm:text-2xl md:text-3xl font-bold text-[#1F3D2B]">
+                5. 공연
               </h3>
             </div>
-            <p className="text-base md:text-lg text-[#4A5243] mb-4">어르신이 직접 무대에 서는 참여형 공연입니다.</p>
-            <ul className="space-y-2 mb-6 text-base md:text-lg text-[#23291F]">
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 부채춤, 색소폰, 숟가락 난타</li>
-              <li className="flex items-center gap-2"><span className="text-[#7A9070] text-xl">•</span> 생신 축하 공연, 연말 송년 공연</li>
-            </ul>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 md:gap-4">
-              <img src="/images/문화예술공연.jpg" alt="문화 예술 공연 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/문화예술공연2.jpg" alt="문화 예술 공연 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/문화예술공연3.jpg" alt="색소폰 공연" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/문화예술공연4.jpg" alt="연말 공연" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/어르신들이준비한송년공연2.jpg" alt="송년 공연 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+            <p className="text-xs sm:text-base md:text-lg text-[#4A5243] mb-3 sm:mb-4 leading-relaxed">
+              생신 축하 잔치, 전문 예술인 초청 위문 공연, 어르신들이 직접 무대에 서는 참여형 발표회까지 웃음과 신명이 넘칩니다.
+            </p>
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-base md:text-lg text-[#23291F]">
+                <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 따뜻하고 감동 가득한 어르신 생신 축하 잔치</li>
+                <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 국악, 부채춤, 색소폰 연주, 숟가락 난타 위문 공연</li>
+                <li className="flex items-center gap-2"><span className="text-[#7A9070] text-lg">•</span> 어르신들이 직접 준비한 연말 송년 무대와 노래자랑</li>
+              </ul>
+            </div>
+            <div className="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x scrollbar-none">
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+                <img src="/images/생신체험.jpg" alt="생신 축하 잔치" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">생신 축하 잔치</span>
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+                <img src="/images/문화예술공연.jpg" alt="문화 예술 공연 1" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">국악 및 무용 공연</span>
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+                <img src="/images/문화예술공연3.jpg" alt="색소폰 공연" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">색소폰 연주</span>
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+                <img src="/images/문화예술공연2.jpg" alt="문화 예술 공연 2" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">전통 가락 위문 공연</span>
+              </div>
+              <div className="w-[140px] sm:w-auto flex-shrink-0 snap-start flex flex-col">
+                <img src="/images/어르신들이준비한송년공연2.jpg" alt="송년 공연" className="w-full aspect-[4/3] object-cover rounded border border-[#E0E4DC]" />
+                <span className="text-[11px] sm:text-xs text-[#7A9070] mt-1 text-center font-medium">어르신 발표회</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ⑥ Daily Schedule */}
-      <section className="py-16 md:py-28 bg-[#E8EDE4]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-3">
+      {/* ⑥ Daily Schedule [7. 하루 일과 섹션 수정: 오전/오후 큰 구분 + 사진 교체 + 바디힐더] */}
+      <section className="py-8 sm:py-14 md:py-24 bg-[#E8EDE4]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-10 md:mb-12">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-2 sm:mb-3">
               하루 일과
             </h2>
-            <p className="text-base md:text-lg text-[#7A9070]">
-              규칙적이고 세심한 케어로 채워지는 안전한 하루
+            <p className="text-xs sm:text-base md:text-lg text-[#7A9070]">
+              규칙적이고 세심한 간호 케어로 채워지는 안전하고 활기찬 하루
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-8 md:gap-12 items-start">
-            <div className="overflow-x-auto rounded border border-[#E0E4DC] bg-white shadow-sm">
-              <table className="w-full border-collapse text-left">
-                <thead>
-                  <tr className="bg-[#E8EDE4] font-serif-custom text-[#1F3D2B]">
-                    <th className="p-3.5 md:p-4 w-[90px] md:w-[100px] text-base md:text-lg font-bold border-b border-[#E0E4DC]">시간</th>
-                    <th className="p-3.5 md:p-4 text-base md:text-lg font-bold border-b border-[#E0E4DC]">내용</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#E0E4DC] text-sm md:text-base text-[#23291F]">
-                  <tr><td className="p-3.5 md:p-4 font-bold">07:00</td><td className="p-3.5 md:p-4">등원 · 건강 확인 (노인전문간호사)</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">07:30</td><td className="p-3.5 md:p-4">아침 산책</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">08:00</td><td className="p-3.5 md:p-4">아침 식사 — 죽, 제철 과일, 요구르트, 계란, 순두부</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">09:00</td><td className="p-3.5 md:p-4">노래 체조 2곡, 다 함께 걷기</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">09:30</td><td className="p-3.5 md:p-4">바디스파이크 · 인지 활동 · 물리치료 · 개인 운동</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">10:30</td><td className="p-3.5 md:p-4">전문 강사 프로그램</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">11:30</td><td className="p-3.5 md:p-4">입 운동</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">12:00</td><td className="p-3.5 md:p-4">점심 식사 — 노인전문 영양사 식단, 반찬 5가지</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">12:30</td><td className="p-3.5 md:p-4">휴식</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">13:00</td><td className="p-3.5 md:p-4">스모비 운동</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">14:00</td><td className="p-3.5 md:p-4">요일별 프로그램 — 치매예방체조, 슬링, 족욕, 노래 교실, 악단 공연</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">15:00</td><td className="p-3.5 md:p-4">종례 · 간식 · 하원</td></tr>
-                  <tr><td className="p-3.5 md:p-4 font-bold">15:40</td><td className="p-3.5 md:p-4">관절 운동 (저녁 이용 어르신)</td></tr>
-                </tbody>
-              </table>
+          <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-5 md:gap-12 items-start">
+            {/* Morning and Afternoon Big Blocks */}
+            <div className="space-y-4 sm:space-y-6">
+              {/* 오전 일정 */}
+              <div className="bg-white rounded-lg border border-[#E0E4DC] p-4 sm:p-6 md:p-8 shadow-sm">
+                <div className="flex items-center gap-2.5 sm:gap-3 border-b border-[#E8EDE4] pb-3 mb-3 sm:pb-4 sm:mb-4">
+                  <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E4A93C] text-[#23291F] flex items-center justify-center font-bold text-xs sm:text-sm shadow-sm flex-shrink-0">
+                    오전
+                  </span>
+                  <div>
+                    <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B]">
+                      오전 일과 (07:00 ~ 12:30)
+                    </h3>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-[#7A9070]">건강 체크 · 영양 아침 · 트랙 걷기 · 바디힐더 재활</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2.5 sm:space-y-3.5 text-xs sm:text-sm md:text-base text-[#23291F]">
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">07:00~08:30</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">등원 및 건강 확인 (노인전문간호사)</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">혈압·체온·혈당 측정 및 정기 투약 관리, 아침 영양죽 식사</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">08:30~09:30</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">아침 산책 & 노래 체조</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">100m 트랙에서 흥겨운 노래에 맞춰 전신 스트레칭 및 다 함께 걷기</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">09:30~11:30</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">바디힐더 · 인지 활동 · 물리치료</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">바디힐더 기구 운동, AI 스마트 인지 훈련 및 외부 강사 특화 프로그램</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">11:30~12:30</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">입 운동 및 점심 식사</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">연하 장애 예방 구강 체조 후, 노인전문 영양사가 설계한 5찬 균형 식사</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 오후 일정 */}
+              <div className="bg-white rounded-lg border border-[#E0E4DC] p-4 sm:p-6 md:p-8 shadow-sm">
+                <div className="flex items-center gap-2.5 sm:gap-3 border-b border-[#E8EDE4] pb-3 mb-3 sm:pb-4 sm:mb-4">
+                  <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#1F3D2B] text-[#FBFAF7] flex items-center justify-center font-bold text-xs sm:text-sm shadow-sm flex-shrink-0">
+                    오후
+                  </span>
+                  <div>
+                    <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B]">
+                      오후 일과 (12:30 ~ 17:30)
+                    </h3>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-[#7A9070]">휴식 및 오침 · 스모비 운동 · 요일별 특화 프로그램 · 안전 하원</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2.5 sm:space-y-3.5 text-xs sm:text-sm md:text-base text-[#23291F]">
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">12:30~13:00</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">편안한 휴식 (오침)</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">식후 따뜻한 온돌방 및 리클라이너에서 안락한 재충전</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">13:00~14:00</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">스모비 운동 & 시니어 피트니스</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">파킨슨·치매 예방 스모비 진동 운동 및 균형 감각 강화</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">14:00~15:00</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">요일별 맞춤 특화 프로그램</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">슬링 운동, 편백 족욕, 노래 교실, 민요·악단 공연, 미술 치료</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 sm:gap-3">
+                    <span className="font-bold text-[#1F3D2B] w-16 sm:w-20 flex-shrink-0 text-[11px] sm:text-sm">15:00~17:30</span>
+                    <div>
+                      <strong className="text-[#1F3D2B]">오후 간식, 종례 및 안전 하원 송영</strong>
+                      <p className="text-[11px] sm:text-xs md:text-sm text-[#555555]">영양 간식 후 전용 차량으로 댁 앞까지 안전 귀가 (저녁 이용 관절 운동 및 석식)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <img src="/images/건강체크1.jpg" alt="등원 후 건강 체크" className="w-full h-[180px] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/아침체조.jpg" alt="아침 체조 시간" className="w-full h-[180px] object-cover rounded border border-[#E0E4DC]" />
-              <img src="/images/실내산책.jpg" alt="실내 자율 산책" className="w-full h-[180px] object-cover rounded border border-[#E0E4DC]" />
+            {/* Photos: on mobile horizontal swipe */}
+            <div className="flex md:flex-col gap-2.5 md:gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x scrollbar-none">
+              <div className="w-[230px] md:w-full flex-shrink-0 snap-start bg-white rounded border border-[#E0E4DC] overflow-hidden shadow-sm">
+                <img src="/images/건강체크.jpg" alt="간호사 혈압 및 건강 체크" className="w-full h-[150px] md:h-[190px] object-cover" />
+                <div className="p-2 sm:p-3 text-xs md:text-sm text-[#1F3D2B] font-semibold bg-[#FAFBF8] border-t border-[#E0E4DC]">
+                  🩺 전담 노인간호사의 활력징후 측정
+                </div>
+              </div>
+              <div className="w-[230px] md:w-full flex-shrink-0 snap-start bg-white rounded border border-[#E0E4DC] overflow-hidden shadow-sm">
+                <img src="/images/건강체크1.jpg" alt="꼼꼼한 투약 및 처방 관리" className="w-full h-[150px] md:h-[190px] object-cover" />
+                <div className="p-2 sm:p-3 text-xs md:text-sm text-[#1F3D2B] font-semibold bg-[#FAFBF8] border-t border-[#E0E4DC]">
+                  💊 정해진 시간 철저한 개별 투약 관리
+                </div>
+              </div>
+              <div className="w-[230px] md:w-full flex-shrink-0 snap-start bg-white rounded border border-[#E0E4DC] overflow-hidden shadow-sm">
+                <img src="/images/실내산책.jpg" alt="100m 트랙 실내 산책" className="w-full h-[150px] md:h-[170px] object-cover" />
+                <div className="p-2 sm:p-3 text-xs md:text-sm text-[#1F3D2B] font-semibold bg-[#FAFBF8] border-t border-[#E0E4DC]">
+                  🚶 100m 트랙 자유로운 실내 걷기
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Meals Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 mt-12">
-            <div className="bg-white border border-[#E0E4DC] rounded p-4 text-center shadow-sm">
-              <img src="/images/아침죽과일부추김치요플레.jpg" alt="아침 죽 식단" className="w-full aspect-[4/3] object-cover rounded mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-base md:text-lg">아침 — 죽과 제철 반찬</div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-5 mt-6 sm:mt-12">
+            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
+              <img src="/images/아침죽과일부추김치요플레.jpg" alt="아침 죽 식단" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
+              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">아침 — 죽과 제철 반찬</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-4 text-center shadow-sm">
-              <img src="/images/아침.jpg" alt="아침 식단" className="w-full aspect-[4/3] object-cover rounded mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-base md:text-lg">아침 식사 차림</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
+              <img src="/images/아침.jpg" alt="아침 식단" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
+              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">아침 식사 차림</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-4 text-center shadow-sm">
-              <img src="/images/점심저녁.jpg" alt="점심 저녁 식단 1" className="w-full aspect-[4/3] object-cover rounded mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-base md:text-lg">점심 · 저녁 영양 식단 1</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
+              <img src="/images/점심저녁.jpg" alt="점심 저녁 식단 1" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
+              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">점심 · 저녁 식단 1</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-4 text-center shadow-sm">
-              <img src="/images/점심저녁2.jpg" alt="점심 저녁 식단 2" className="w-full aspect-[4/3] object-cover rounded mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-base md:text-lg">점심 · 저녁 영양 식단 2</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm">
+              <img src="/images/점심저녁2.jpg" alt="점심 저녁 식단 2" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
+              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">점심 · 저녁 식단 2</div>
             </div>
-            <div className="bg-white border border-[#E0E4DC] rounded p-4 text-center shadow-sm col-span-2 sm:col-span-4 max-w-sm mx-auto w-full">
-              <img src="/images/오후간식떡케이크주스.jpg" alt="오후 간식" className="w-full aspect-[4/3] object-cover rounded mb-3" />
-              <div className="font-semibold text-[#1F3D2B] text-base md:text-lg">오후 간식 — 떡·케이크·생과일주스</div>
+            <div className="bg-white border border-[#E0E4DC] rounded p-2.5 sm:p-4 text-center shadow-sm col-span-2 sm:col-span-4 max-w-[280px] sm:max-w-sm mx-auto w-full">
+              <img src="/images/오후간식떡케이크주스.jpg" alt="오후 간식" className="w-full aspect-[4/3] object-cover rounded mb-2 sm:mb-3" />
+              <div className="font-semibold text-[#1F3D2B] text-xs sm:text-base md:text-lg">오후 간식 — 떡·과일주스</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ⑦ Promises */}
-      <section className="py-16 md:py-28 bg-[#FBFAF7]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-3">
+      <section className="py-8 sm:py-14 md:py-24 bg-[#FBFAF7]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-10 md:mb-12">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-2 sm:mb-3">
               우리의 약속
             </h2>
-            <p className="text-base md:text-lg text-[#7A9070]">
+            <p className="text-xs sm:text-base md:text-lg text-[#7A9070]">
               1991년 UN 「노인을 위한 원칙」을 이렇게 지킵니다.
             </p>
           </div>
 
-          <div className="border-l-2 border-[#7A9070] pl-6 md:pl-10 space-y-8 max-w-[800px] mx-auto">
+          <div className="border-l-2 border-[#7A9070] pl-4 sm:pl-6 md:pl-10 space-y-4 sm:space-y-6 md:space-y-8 max-w-[800px] mx-auto">
             <div>
-              <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-2">
+              <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
                 살던 집에서 오래오래
               </h3>
-              <p className="text-base md:text-lg text-[#4A5243]">
+              <p className="text-xs sm:text-base md:text-lg text-[#4A5243]">
                 평생 살아오신 집에서 오래 지내실 수 있도록 돕습니다.
               </p>
             </div>
             <div>
-              <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-2">
+              <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
                 센터 안에만 머물지 않게
               </h3>
-              <p className="text-base md:text-lg text-[#4A5243]">
+              <p className="text-xs sm:text-base md:text-lg text-[#4A5243]">
                 매달, 해마다 바깥 나들이 프로그램을 진행합니다.
               </p>
             </div>
             <div>
-              <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-2">
+              <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
                 아픈 곳을 그냥 지나치지 않게
               </h3>
-              <p className="text-base md:text-lg text-[#4A5243]">
+              <p className="text-xs sm:text-base md:text-lg text-[#4A5243]">
                 세심하게 살피고 따뜻하게 돌봅니다.
               </p>
             </div>
             <div>
-              <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-2">
+              <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
                 배움은 나이와 상관없이
               </h3>
-              <p className="text-base md:text-lg text-[#4A5243]">
+              <p className="text-xs sm:text-base md:text-lg text-[#4A5243]">
                 새로 배우실 수 있는 프로그램을 마련합니다.
               </p>
             </div>
             <div>
-              <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-2">
+              <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1 sm:mb-2">
                 한 분도 소외되지 않게
               </h3>
-              <p className="text-base md:text-lg text-[#4A5243]">
+              <p className="text-xs sm:text-base md:text-lg text-[#4A5243]">
                 한 분 한 분의 목소리에 귀 기울입니다.
               </p>
             </div>
@@ -587,18 +896,18 @@ export default function App() {
       </section>
 
       {/* ⑧ Center Facilities Gallery */}
-      <section className="py-16 md:py-28 bg-[#E8EDE4]">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-3">
+      <section className="py-8 sm:py-14 md:py-24 bg-[#E8EDE4]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-10 md:mb-12">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-2 sm:mb-3">
               센터 둘러보기
             </h2>
-            <p className="text-base md:text-lg text-[#7A9070]">
+            <p className="text-xs sm:text-base md:text-lg text-[#7A9070]">
               계단 없는 단층 200평. 앞뒤 창으로 제석산과 금당산이 보입니다.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4 md:gap-5">
             <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
               <img src="/images/센터사진2.jpg" alt="센터 내부 1" className="w-full aspect-[4/3] object-cover" />
             </div>
@@ -619,7 +928,7 @@ export default function App() {
             </div>
             <div className="rounded overflow-hidden border border-[#E0E4DC] bg-white shadow-sm">
               <img src="/images/센터사진8카페테리아.jpg" alt="카페테리아" className="w-full aspect-[4/3] object-cover" />
-              <div className="p-2.5 text-center text-sm md:text-base font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
+              <div className="p-1.5 sm:p-2.5 text-center text-xs sm:text-sm md:text-base font-semibold text-[#1F3D2B] bg-white border-t border-[#E0E4DC]">
                 카페테리아
               </div>
             </div>
@@ -631,138 +940,138 @@ export default function App() {
       </section>
 
       {/* ⑨ Blog News Section */}
-      <section className="py-16 md:py-28 bg-[#FBFAF7]" id="blog-news">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-3">
+      <section className="py-8 sm:py-14 md:py-24 bg-[#FBFAF7]" id="blog-news">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-10 md:mb-12">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-2 sm:mb-3">
               더사랑 생생 소식
             </h2>
-            <p className="text-base md:text-lg text-[#7A9070]">
+            <p className="text-xs sm:text-base md:text-lg text-[#7A9070]">
               어르신들과 함께 만들어가는 매일매일의 따뜻하고 행복한 일상입니다.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-7">
             {/* News Item 1 */}
             <div className="bg-white border border-[#E0E4DC] rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7A9070]">
-              <div className="relative w-full h-[240px] bg-[#E8EDE4] overflow-hidden">
+              <div className="relative w-full h-[170px] sm:h-[220px] md:h-[240px] bg-[#E8EDE4] overflow-hidden">
                 <img
                   src="/images/토요시장체험.jpg"
                   alt="화순 토요시장 나들이"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute top-4 left-4 bg-[#1F3D2B] text-[#FBFAF7] text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow-md">
+                <span className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 bg-[#1F3D2B] text-[#FBFAF7] text-[11px] sm:text-xs md:text-sm font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md">
                   야외 체험 나들이
                 </span>
               </div>
-              <div className="p-7 flex flex-col flex-grow">
-                <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-3 leading-snug">
+              <div className="p-4 sm:p-7 flex flex-col flex-grow">
+                <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1.5 sm:mb-3 leading-snug">
                   어르신들과 함께한 정겨운 &apos;화순 토요 시장&apos; 나들이
                 </h3>
-                <p className="text-sm md:text-base text-[#555555] leading-relaxed mb-6 flex-grow">
+                <p className="text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed mb-3.5 sm:mb-6 flex-grow">
                   시골 장터의 정겨운 온기와 싱싱한 먹거리를 함께 둘러보며 소중한 추억을 만들었습니다. 오랜만에 전통시장을 자유롭게 거니시며 밝게 웃으시는 어르신들의 모습을 확인해 보세요.
                 </p>
                 <a
                   href="https://blog.naver.com/sarang8090/224281421743"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-5 py-3 rounded-md text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
+                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-3.5 py-2 sm:px-5 sm:py-3 rounded-md text-xs sm:text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
                 >
                   <span>네이버 블로그에서 보기</span>
-                  <span className="text-lg">→</span>
+                  <span className="text-base sm:text-lg">→</span>
                 </a>
               </div>
             </div>
 
             {/* News Item 2 */}
             <div className="bg-white border border-[#E0E4DC] rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7A9070]">
-              <div className="relative w-full h-[240px] bg-[#E8EDE4] overflow-hidden">
+              <div className="relative w-full h-[170px] sm:h-[220px] md:h-[240px] bg-[#E8EDE4] overflow-hidden">
                 <img
                   src="/images/어르신들송년공연.jpg"
                   alt="어르신 열창 노래자랑"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute top-4 left-4 bg-[#1F3D2B] text-[#FBFAF7] text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow-md">
+                <span className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 bg-[#1F3D2B] text-[#FBFAF7] text-[11px] sm:text-xs md:text-sm font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md">
                   특별 행사
                 </span>
               </div>
-              <div className="p-7 flex flex-col flex-grow">
-                <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-3 leading-snug">
+              <div className="p-4 sm:p-7 flex flex-col flex-grow">
+                <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1.5 sm:mb-3 leading-snug">
                   박수와 웃음이 가득한 &apos;더사랑 어르신 노래자랑&apos; 현장
                 </h3>
-                <p className="text-sm md:text-base text-[#555555] leading-relaxed mb-6 flex-grow">
+                <p className="text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed mb-3.5 sm:mb-6 flex-grow">
                   한 달 동안 어르신들께서 정성스레 연습하신 애창곡을 멋지게 선보여 주셨습니다. 마음껏 노래하시고 서로 응원하며 센터 전체가 흥겨운 축제의 장이 되었습니다.
                 </p>
                 <a
                   href="https://blog.naver.com/sarang8090/224237441626"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-5 py-3 rounded-md text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
+                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-3.5 py-2 sm:px-5 sm:py-3 rounded-md text-xs sm:text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
                 >
                   <span>네이버 블로그에서 보기</span>
-                  <span className="text-lg">→</span>
+                  <span className="text-base sm:text-lg">→</span>
                 </a>
               </div>
             </div>
 
             {/* News Item 3 */}
             <div className="bg-white border border-[#E0E4DC] rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7A9070]">
-              <div className="relative w-full h-[240px] bg-[#E8EDE4] overflow-hidden">
+              <div className="relative w-full h-[170px] sm:h-[220px] md:h-[240px] bg-[#E8EDE4] overflow-hidden">
                 <img
                   src="/images/문화예술공연.jpg"
                   alt="문화예술 공연"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute top-4 left-4 bg-[#1F3D2B] text-[#FBFAF7] text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow-md">
+                <span className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 bg-[#1F3D2B] text-[#FBFAF7] text-[11px] sm:text-xs md:text-sm font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md">
                   문화 예술 정서
                 </span>
               </div>
-              <div className="p-7 flex flex-col flex-grow">
-                <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-3 leading-snug">
+              <div className="p-4 sm:p-7 flex flex-col flex-grow">
+                <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1.5 sm:mb-3 leading-snug">
                   신명나는 국악과 춤사위, &apos;문화예술 위문 공연&apos;
                 </h3>
-                <p className="text-sm md:text-base text-[#555555] leading-relaxed mb-6 flex-grow">
+                <p className="text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed mb-3.5 sm:mb-6 flex-grow">
                   전문 예술 단체를 초청하여 어르신들의 신명과 마음의 위로를 더해 드렸습니다. 다채로운 공연과 가락에 맞춰 어깨춤을 추시며 오랜만에 오감이 즐거운 시간을 가졌습니다.
                 </p>
                 <a
                   href="https://blog.naver.com/sarang8090/224207959814"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-5 py-3 rounded-md text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
+                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-3.5 py-2 sm:px-5 sm:py-3 rounded-md text-xs sm:text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
                 >
                   <span>네이버 블로그에서 보기</span>
-                  <span className="text-lg">→</span>
+                  <span className="text-base sm:text-lg">→</span>
                 </a>
               </div>
             </div>
 
             {/* News Item 4 */}
             <div className="bg-white border border-[#E0E4DC] rounded-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7A9070]">
-              <div className="relative w-full h-[240px] bg-[#E8EDE4] overflow-hidden">
+              <div className="relative w-full h-[170px] sm:h-[220px] md:h-[240px] bg-[#E8EDE4] overflow-hidden">
                 <img
                   src="/images/생신체험.jpg"
                   alt="따뜻한 생신 축하 잔치"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute top-4 left-4 bg-[#1F3D2B] text-[#FBFAF7] text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow-md">
+                <span className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 bg-[#1F3D2B] text-[#FBFAF7] text-[11px] sm:text-xs md:text-sm font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md">
                   더사랑 기념일
                 </span>
               </div>
-              <div className="p-7 flex flex-col flex-grow">
-                <h3 className="font-serif-custom text-xl md:text-2xl font-bold text-[#1F3D2B] mb-3 leading-snug">
+              <div className="p-4 sm:p-7 flex flex-col flex-grow">
+                <h3 className="font-serif-custom text-base sm:text-xl md:text-2xl font-bold text-[#1F3D2B] mb-1.5 sm:mb-3 leading-snug">
                   어르신의 소중한 하루, &apos;따뜻한 생신 축하 잔치&apos;
                 </h3>
-                <p className="text-sm md:text-base text-[#555555] leading-relaxed mb-6 flex-grow">
+                <p className="text-xs sm:text-sm md:text-base text-[#555555] leading-relaxed mb-3.5 sm:mb-6 flex-grow">
                   사랑하는 어르신 한 분 한 분의 생신을 모시고 마음 모아 건강과 행복을 기원해 드렸습니다. 정성스럽게 차려진 케이크와 축하 무대로 잊지 못할 감동을 전했습니다.
                 </p>
                 <a
                   href="https://blog.naver.com/sarang8090/224201537675"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-5 py-3 rounded-md text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
+                  className="inline-flex items-center justify-between bg-[#FBFAF7] text-[#1F3D2B] border border-[#E0E4DC] px-3.5 py-2 sm:px-5 sm:py-3 rounded-md text-xs sm:text-sm md:text-base font-semibold hover:bg-[#1F3D2B] hover:text-[#FBFAF7] hover:border-[#1F3D2B] transition-colors"
                 >
                   <span>네이버 블로그에서 보기</span>
-                  <span className="text-lg">→</span>
+                  <span className="text-base sm:text-lg">→</span>
                 </a>
               </div>
             </div>
@@ -771,37 +1080,38 @@ export default function App() {
       </section>
 
       {/* ⑩ FAQ Accordion */}
-      <section className="py-16 md:py-28 bg-[#E8EDE4]" id="faq">
-        <div className="max-w-[1080px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif-custom text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-3">
+      <section className="py-8 sm:py-14 md:py-24 bg-[#E8EDE4]" id="faq">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-10 md:mb-12">
+            <h2 className="font-serif-custom text-xl sm:text-2xl md:text-4xl font-bold text-[#1F3D2B] mb-2 sm:mb-3">
               자주 묻는 질문
             </h2>
-            <p className="text-base md:text-lg text-[#7A9070]">
+            <p className="text-xs sm:text-base md:text-lg text-[#7A9070]">
               보호자분들께서 가장 자주 물으시는 핵심 질문들을 모았습니다.
             </p>
           </div>
 
-          <div className="max-w-[880px] mx-auto space-y-4">
+          <div className="max-w-[880px] mx-auto space-y-2.5 sm:space-y-4">
             {/* FAQ Q1 */}
             <div className={`bg-white border rounded-lg overflow-hidden transition-all duration-200 ${openFaq === 1 ? "border-[#7A9070] shadow-md" : "border-[#E0E4DC]"}`}>
               <button
                 onClick={() => toggleFaq(1)}
-                className="w-full flex justify-between items-center p-5 md:p-6 text-left text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
+                className="w-full flex justify-between items-center p-3.5 sm:p-5 md:p-6 text-left text-xs sm:text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-sm font-bold flex-shrink-0">Q1</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">Q1</span>
                   <span>주간보호센터는 어떤 분이 이용하실 수 있나요?</span>
                 </div>
-                <span className={`text-xl transition-transform duration-300 ${openFaq === 1 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
+                <span className={`text-base sm:text-xl transition-transform duration-300 ${openFaq === 1 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
               </button>
               {openFaq === 1 && (
-                <div className="p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-sm md:text-base leading-relaxed text-[#23291F]">
-                  <p className="mb-3">
+                <div className="p-3.5 sm:p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-xs sm:text-sm md:text-base leading-relaxed text-[#23291F]">
+                  <p className="mb-2 sm:mb-3">
                     국민건강보험공단으로부터 <strong className="text-[#1F3D2B]">노인장기요양등급(1등급~5등급 및 인지지원등급)</strong>을 받으신 어르신이라면 누구나 이용하실 수 있습니다.
                   </p>
-                  <div className="bg-[#E8EDE4] border-l-4 border-[#1F3D2B] p-3.5 rounded-r text-sm font-medium">
-                    💡 등급이 아직 없으신 어르신도 저희 센터에서 신청 절차부터 서류 준비까지 친절하게 무상으로 도움을 드립니다. (문의: 062-675-8090)
+                  <div className="bg-[#E8EDE4] border-l-4 border-[#1F3D2B] p-2.5 sm:p-3.5 rounded-r text-[11px] sm:text-sm font-medium flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span>💡 등급이 아직 없으신 어르신도 저희 센터에서 신청 절차부터 서류 준비까지 친절하게 무상으로 도움을 드립니다.</span>
+                    <a href="tel:062-675-8090" className="inline-block px-2.5 py-1 bg-[#1F3D2B] text-white rounded text-xs font-bold text-center self-start sm:self-auto">전화 문의</a>
                   </div>
                 </div>
               )}
@@ -811,16 +1121,16 @@ export default function App() {
             <div className={`bg-white border rounded-lg overflow-hidden transition-all duration-200 ${openFaq === 2 ? "border-[#7A9070] shadow-md" : "border-[#E0E4DC]"}`}>
               <button
                 onClick={() => toggleFaq(2)}
-                className="w-full flex justify-between items-center p-5 md:p-6 text-left text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
+                className="w-full flex justify-between items-center p-3.5 sm:p-5 md:p-6 text-left text-xs sm:text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-sm font-bold flex-shrink-0">Q2</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">Q2</span>
                   <span>이용 비용과 국가지원 혜택은 어떻게 되나요?</span>
                 </div>
-                <span className={`text-xl transition-transform duration-300 ${openFaq === 2 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
+                <span className={`text-base sm:text-xl transition-transform duration-300 ${openFaq === 2 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
               </button>
               {openFaq === 2 && (
-                <div className="p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-sm md:text-base leading-relaxed text-[#23291F]">
+                <div className="p-3.5 sm:p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-xs sm:text-sm md:text-base leading-relaxed text-[#23291F]">
                   <p className="mb-2">
                     노인장기요양보험 혜택을 받으시면 <strong className="text-[#1F3D2B]">국가에서 이용 금액의 85%~100%를 지원</strong>해 드립니다.
                   </p>
@@ -835,16 +1145,16 @@ export default function App() {
             <div className={`bg-white border rounded-lg overflow-hidden transition-all duration-200 ${openFaq === 3 ? "border-[#7A9070] shadow-md" : "border-[#E0E4DC]"}`}>
               <button
                 onClick={() => toggleFaq(3)}
-                className="w-full flex justify-between items-center p-5 md:p-6 text-left text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
+                className="w-full flex justify-between items-center p-3.5 sm:p-5 md:p-6 text-left text-xs sm:text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-sm font-bold flex-shrink-0">Q3</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">Q3</span>
                   <span>집 앞까지 모시러 오는 송영 차량이 운행되나요?</span>
                 </div>
-                <span className={`text-xl transition-transform duration-300 ${openFaq === 3 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
+                <span className={`text-base sm:text-xl transition-transform duration-300 ${openFaq === 3 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
               </button>
               {openFaq === 3 && (
-                <div className="p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-sm md:text-base leading-relaxed text-[#23291F]">
+                <div className="p-3.5 sm:p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-xs sm:text-sm md:text-base leading-relaxed text-[#23291F]">
                   <p className="mb-2">
                     네, 안전요원과 전문 직원이 탑승하는 <strong className="text-[#1F3D2B]">더사랑 전용 송영 차량이 어르신 댁 앞까지 오르고 내리시는 과정을 안전하게 보살펴 드립니다.</strong>
                   </p>
@@ -857,16 +1167,16 @@ export default function App() {
             <div className={`bg-white border rounded-lg overflow-hidden transition-all duration-200 ${openFaq === 4 ? "border-[#7A9070] shadow-md" : "border-[#E0E4DC]"}`}>
               <button
                 onClick={() => toggleFaq(4)}
-                className="w-full flex justify-between items-center p-5 md:p-6 text-left text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
+                className="w-full flex justify-between items-center p-3.5 sm:p-5 md:p-6 text-left text-xs sm:text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-sm font-bold flex-shrink-0">Q4</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">Q4</span>
                   <span>주말(토요일)에도 센터를 이용할 수 있나요?</span>
                 </div>
-                <span className={`text-xl transition-transform duration-300 ${openFaq === 4 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
+                <span className={`text-base sm:text-xl transition-transform duration-300 ${openFaq === 4 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
               </button>
               {openFaq === 4 && (
-                <div className="p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-sm md:text-base leading-relaxed text-[#23291F]">
+                <div className="p-3.5 sm:p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-xs sm:text-sm md:text-base leading-relaxed text-[#23291F]">
                   <p className="mb-2">
                     네! 더사랑 주간보호센터는 <strong className="text-[#1F3D2B]">월요일부터 토요일까지</strong> 운영합니다.
                   </p>
@@ -879,21 +1189,29 @@ export default function App() {
             <div className={`bg-white border rounded-lg overflow-hidden transition-all duration-200 ${openFaq === 5 ? "border-[#7A9070] shadow-md" : "border-[#E0E4DC]"}`}>
               <button
                 onClick={() => toggleFaq(5)}
-                className="w-full flex justify-between items-center p-5 md:p-6 text-left text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
+                className="w-full flex justify-between items-center p-3.5 sm:p-5 md:p-6 text-left text-xs sm:text-base md:text-lg font-bold text-[#1F3D2B] hover:bg-[#E8EDE4]/30 transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-sm font-bold flex-shrink-0">Q5</span>
-                  <span>견학이나 무료 체험 이용이 가능한가요?</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#E8EDE4] text-[#1F3D2B] flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">Q5</span>
+                  <span>라운딩(견학·체험) 신청은 어떻게 하나요?</span>
                 </div>
-                <span className={`text-xl transition-transform duration-300 ${openFaq === 5 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
+                <span className={`text-base sm:text-xl transition-transform duration-300 ${openFaq === 5 ? "rotate-180 text-[#1F3D2B]" : "text-[#7A9070]"}`}>▼</span>
               </button>
               {openFaq === 5 && (
-                <div className="p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-sm md:text-base leading-relaxed text-[#23291F]">
-                  <p className="mb-3">
-                    언제든 편하신 시간에 부담 없이 둘러보실 수 있습니다. 어르신과 보호자께서 직접 계단 없는 200평 숲세권 시설과 일과 프로그램을 <strong className="text-[#1F3D2B]">비용 부담 없이 직접 무료로 경험</strong>해 보실 수 있습니다.
+                <div className="p-3.5 sm:p-6 pt-2 bg-[#FAFBF8] border-t border-[#E0E4DC] text-xs sm:text-sm md:text-base leading-relaxed text-[#23291F]">
+                  <p className="mb-2 sm:mb-3">
+                    언제든 편하신 시간에 부담 없이 둘러보실 수 있도록 <strong className="text-[#1F3D2B]">라운딩을 정성껏 도와드립니다.</strong> 어르신과 보호자께서 직접 100m 실내 트랙과 200평 공간, 재활 기구와 일과를 편안하게 경험해 보실 수 있습니다.
                   </p>
-                  <div className="bg-[#E8EDE4] border-l-4 border-[#1F3D2B] p-3.5 rounded-r text-sm font-medium">
-                    👉 웹사이트 상단의 &apos;견학 신청&apos; 버튼을 누르시거나 <strong className="text-[#1F3D2B]">062-675-8090</strong>으로 전화해 주시면 원하는 일시에 안내해 드립니다.
+                  <div className="bg-[#E8EDE4] border-l-4 border-[#1F3D2B] p-2.5 sm:p-3.5 rounded-r text-[11px] sm:text-sm font-medium flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span>
+                      👉 전화 <strong className="text-[#1F3D2B]">062-675-8090</strong>으로 문의하시면 무료 픽업과 맞춤형 상담을 함께 도와드립니다.
+                    </span>
+                    <a
+                      href="tel:062-675-8090"
+                      className="inline-block px-3 py-1.5 bg-[#1F3D2B] text-white rounded text-xs font-bold text-center self-start sm:self-auto"
+                    >
+                      전화 연결
+                    </a>
                   </div>
                 </div>
               )}
@@ -902,39 +1220,45 @@ export default function App() {
         </div>
       </section>
 
-      {/* ⑪ Final Call To Action */}
-      <section className="py-20 md:py-32 bg-[#1F3D2B] text-[#FBFAF7] text-center">
-        <div className="max-w-[800px] mx-auto px-6">
-          <h2 className="font-serif-custom text-3xl md:text-5xl font-bold mb-4 text-[#FBFAF7] leading-snug">
+      {/* ⑪ Final Call To Action [8. 하단 문구 수정: 견학, 체험을 하실 수 있습니다.] */}
+      <section className="py-10 sm:py-16 md:py-28 bg-[#1F3D2B] text-[#FBFAF7] text-center">
+        <div className="max-w-[800px] mx-auto px-4 sm:px-6">
+          <div className="flex justify-center mb-3 sm:mb-6">
+            <img
+              src="/logo.svg"
+              alt="더사랑 주간보호센터 로고"
+              className="h-10 sm:h-14 w-auto object-contain brightness-0 invert opacity-95"
+            />
+          </div>
+          <h2 className="font-serif-custom text-xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 text-[#FBFAF7] leading-snug">
             궁금하시면 직접 오셔서 보세요
           </h2>
-          <p className="text-lg md:text-xl text-[#D4E0D1] mb-8 leading-relaxed">
-            견학과 체험을 비용 없이 제공합니다.<br />
-            국민건강보험공단 법령을 준수하는 범위에서 안내해 드립니다.
+          <p className="text-base sm:text-xl md:text-2xl text-[#E4A93C] font-semibold mb-4 sm:mb-8 leading-relaxed">
+            견학, 체험을 하실 수 있습니다.
           </p>
-          <div className="mb-4">
+          <div className="mb-2 sm:mb-4">
             <a
               href="tel:062-675-8090"
-              className="inline-block font-serif-custom text-3xl md:text-5xl font-bold text-[#E4A93C] hover:underline tracking-wide"
+              className="inline-block font-serif-custom text-2xl sm:text-4xl md:text-5xl font-bold text-[#E4A93C] hover:underline tracking-wide"
             >
               062-675-8090
             </a>
           </div>
-          <p className="text-base md:text-lg text-[#E8EDE4] mb-10">
+          <p className="text-xs sm:text-base md:text-lg text-[#E8EDE4] mb-6 sm:mb-10">
             전남광주통합특별시 남구 서문대로749번다길 37
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
             <a
               href="tel:062-675-8090"
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base md:text-lg font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors"
+              className="inline-flex items-center justify-center px-4 py-2.5 sm:px-8 sm:py-3.5 text-xs sm:text-base md:text-lg font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors"
             >
-              전화 걸기 062-675-8090
+              📞 전화 걸기 (견학 신청)
             </a>
             <a
               href="https://blog.naver.com/sarang8090"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base md:text-lg font-semibold border border-[#FBFAF7] text-[#FBFAF7] rounded hover:bg-[#FBFAF7]/10 transition-colors"
+              className="inline-flex items-center justify-center px-4 py-2.5 sm:px-8 sm:py-3.5 text-xs sm:text-base md:text-lg font-semibold border border-[#FBFAF7] text-[#FBFAF7] rounded hover:bg-[#FBFAF7]/10 transition-colors"
             >
               블로그 바로가기
             </a>
@@ -942,7 +1266,7 @@ export default function App() {
               href="https://map.naver.com/p/entry/place/1313104249?placePath=%2Fhome%3Fentry%3Dplt%26from%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608061030%26locale%3Dko%26svcName%3Dmap_pcv5&searchType=place&lng=126.8951916&lat=35.1226735&c=15.00,0,0,0,dh"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base md:text-lg font-semibold border border-[#FBFAF7] text-[#FBFAF7] rounded hover:bg-[#FBFAF7]/10 transition-colors"
+              className="inline-flex items-center justify-center px-4 py-2.5 sm:px-8 sm:py-3.5 text-xs sm:text-base md:text-lg font-semibold border border-[#FBFAF7] text-[#FBFAF7] rounded hover:bg-[#FBFAF7]/10 transition-colors"
             >
               오시는 길
             </a>
@@ -951,52 +1275,73 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#172e20] text-[#A3B59B] py-12 text-sm md:text-base border-t border-[#284c35]">
-        <div className="max-w-[1080px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-          <div>
-            <div className="font-serif-custom text-xl font-bold text-[#FBFAF7] mb-2">
-              더사랑 주간보호센터
+      <footer className="bg-[#172e20] text-[#A3B59B] py-6 sm:py-12 pb-20 sm:pb-12 text-xs sm:text-base border-t border-[#284c35]">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
+          <div className="flex flex-col md:flex-row items-center gap-3 sm:gap-4">
+            <img
+              src="/logo.svg"
+              alt="더사랑 주간보호센터 로고"
+              className="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-80"
+            />
+            <div>
+              <div className="font-serif-custom text-base sm:text-xl font-bold text-[#FBFAF7] mb-0.5 sm:mb-1">
+                더사랑 주간보호센터
+              </div>
+              <p className="text-[#A3B59B] text-xs sm:text-sm">전남광주통합특별시 남구 서문대로749번다길 37</p>
+              <p className="text-[#A3B59B] text-xs sm:text-sm">전화번호: 062-675-8090</p>
             </div>
-            <p className="text-[#A3B59B] text-sm">전남광주통합특별시 남구 서문대로749번다길 37</p>
-            <p className="text-[#A3B59B] text-sm">전화번호: 062-675-8090</p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <a
+              href="tel:062-675-8090"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold bg-[#E4A93C] text-[#23291F] rounded hover:bg-[#d69b2d] transition-colors shadow-sm"
+            >
+              전화상담
+            </a>
             <a
               href="https://blog.naver.com/sarang8090"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold bg-[#03CF5D] text-white rounded hover:bg-[#02b350] transition-colors shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold bg-[#03CF5D] text-white rounded hover:bg-[#02b350] transition-colors shadow-sm"
             >
               블로그 바로가기
+            </a>
+            <a
+              href="https://www.youtube.com/@thesarang8090"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold bg-[#CC0000] text-white rounded hover:bg-[#b00000] transition-colors shadow-sm"
+            >
+              유튜브
             </a>
             <a
               href="https://map.naver.com/p/entry/place/1313104249?placePath=%2Fhome%3Fentry%3Dplt%26from%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608061030%26locale%3Dko%26svcName%3Dmap_pcv5&searchType=place&lng=126.8951916&lat=35.1226735&c=15.00,0,0,0,dh"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold bg-[#0068FF] text-white rounded hover:bg-[#0052cc] transition-colors shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold bg-[#0068FF] text-white rounded hover:bg-[#0052cc] transition-colors shadow-sm"
             >
-              오시는 길 (네이버 지도)
+              오시는 길
             </a>
           </div>
-          <div className="text-xs md:text-sm text-[#A3B59B]">
+          <div className="text-[11px] sm:text-xs md:text-sm text-[#A3B59B]">
             © 더사랑 주간보호센터. All Rights Reserved.
           </div>
         </div>
       </footer>
 
       {/* Mobile Bottom Sticky Action Bar */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#1F3D2B] p-2.5 flex gap-2 border-t border-white/15 shadow-2xl">
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#1F3D2B] p-2 flex gap-2 border-t border-white/15 shadow-2xl">
         <a
           href="tel:062-675-8090"
-          className="flex-1 h-12 flex items-center justify-center bg-[#E4A93C] text-[#23291F] font-bold text-sm rounded shadow"
+          className="flex-1 h-11 flex items-center justify-center bg-[#E4A93C] text-[#23291F] font-bold text-xs rounded shadow"
         >
-          전화 상담 062-675-8090
+          📞 전화 062-675-8090
         </a>
         <a
           href="tel:062-675-8090"
-          className="flex-1 h-12 flex items-center justify-center bg-[#FBFAF7] text-[#1F3D2B] font-bold text-sm rounded shadow"
+          className="flex-1 h-11 flex items-center justify-center bg-[#FBFAF7] text-[#1F3D2B] font-bold text-xs rounded shadow"
         >
-          견학 신청
+          견학 신청 (전화연결)
         </a>
       </div>
 
